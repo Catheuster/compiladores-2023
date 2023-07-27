@@ -4,7 +4,10 @@ projeto de compiladores 2023-2
 Especificações:\
 -> Trabalharemos usando Python3\
 -> Trabalharemos usando Antlr para Python3\
-	* Basta fazer pip install para mais informações consulte "https://www.antlr.org/download.html"\
+	* Basta fazer pip install antlr4-python3-runtime para mais informações consulte "https://www.antlr.org/download.html"\
+	* Também precisa fazer pip install antlr4-tools, isso vai baixar os artefatos para gerar o Lexer,Parser e amigos\
+	* Depois deste último pip install será necessário acressentar ao PATH das local variables os binários que este último pip install fez (ele te informa onde estão na finalização do pip install)\
+	* Se fez tudo corretamente é só usar "antlr4 -Dlanguage=Python3 gramatica.g4 na pasta src para gerar os novos Lexer,Parser e amigos.\
 
 Falta especificar:\
 -> A forma de expressar ideia na nossa linguagem, isto é, seguiremos o padrão de palavras chaves em inglês? Ou faremos em português?\
