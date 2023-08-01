@@ -1,6 +1,0 @@
-start
-Int a,b,c;
-echo ( "anananana" );
-take ( "read this" , d);
-a = b*d ++ c;
-stop;
