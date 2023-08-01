@@ -1,5 +1,6 @@
 from .IsiSymbol import IsiSymbol
 
+
 class IsiVariable(IsiSymbol):
     NUMBER = 0
     TEXT = 1

@@ -13,7 +13,7 @@ programa
 	b := 3.
 	a := 6.5.
 
-	a := (1 + 4 + 8) * 2.
+	a := (6 + (1 + 4) * 5 + 8) * 2.
 
 	t1 := "txt123".
 
@@ -30,7 +30,7 @@ programa
         }
     }
 
-	enquanto (a > b) {
+	enquanto ((a+c) > b) {
         escreva(a).
         a := 3.
         b := 4.
@@ -40,6 +40,6 @@ programa
         escreva(a).
         a := 3.
         b := 4.
-    } enquanto (a < b).
+    } enquanto (a < (b+c)).
 
 fimprog.

@@ -88,11 +88,11 @@ tipo: 'numero'
 
     {self._type = IsiVariable.IsiVariable.NUMBER}
 
-               | 'texto'
+    | 'texto'
 
     {self._type = IsiVariable.IsiVariable.TEXT}
 
-                         | 'booleano'
+    | 'booleano'
 
     {self._type = IsiVariable.IsiVariable.BOOL}
 
@@ -113,7 +113,8 @@ cmdRead: 'leia' LP ID
 self._readID = self._input.LT(-1).text
 if self._readID in self._unusedVariables:
     self._unusedVariables.remove(self._readID)
-self._initializedVariables.append(self._identifier)}
+if self._readID not in self._initializedVariables:
+    self._initializedVariables.append(self._readID)}
 
                       RP DOT
 
@@ -147,19 +148,14 @@ cmdAssign: ID
 self.verifyID(self._identifier)
 if self._identifier in self._unusedVariables:
     self._unusedVariables.remove(self._identifier)
-self._initializedVariables.append(self._identifier)}
+if self._identifier not in self._initializedVariables:
+    self._initializedVariables.append(self._identifier)}
 
               ASGN
 
 {self._exprContent = ""}
 
-                   (ID
-
-{self._rID = self._input.LT(-1).text
-if self._rID not in self._initializedVariables:
-    raise IsiSemanticException.IsiSemanticException("Símbolo '" + self._rID + "' não inicializado.\n")}
-
-                       | expr) DOT
+                   expr DOT
 
 {self.verifyType(self._identifier, self._type)
 self._cmd = CommandAssign.CommandAssign(self._identifier, self._exprContent)
@@ -167,33 +163,32 @@ self._stack[-1].append(self._cmd)}
 
                    ;
 
-cmdIf: 'se' LP expr
+cmdIf: 'se' LP (BOOL
+{localExprCondition = self._input.LT(-1).text}
+                  |
+{self._exprContent = ""}
+                (expr
 
-{self._exprCondition = self._input.LT(-1).text}
+{localExprCondition = self._exprContent}
 
                      ROP
 
-{self._exprCondition += self._input.LT(-1).text}
+{localExprCondition += self._input.LT(-1).text
+self._exprContent = ""}
 
-                         (ID
+                         expr
 
-{self._ID = self._input.LT(-1).text
-if self._ID not in self._initializedVariables:
-    raise IsiSemanticException.IsiSemanticException("Símbolo '" + self._ID + "' não inicializado.\n")
-self._exprCondition += self._input.LT(-1).text}
+{localExprCondition += self._exprContent}))
 
-                             | expr
-
-{self._exprCondition += self._input.LT(-1).text}
-
-                             ) RP 'entao' LC
+                              RP 'entao' LC
 
 {self._currentThread = []
 self._stack.append(self._currentThread)}
 
                                             (cmd)+ RC
 
-{self._trueList = self._stack.pop()}
+{localTrueList = self._stack.pop()
+localFalseList = []}
 
                                                       ('senao' LC
 
@@ -201,32 +196,35 @@ self._stack.append(self._currentThread)}
 self._stack.append(self._currentThread)}
                                                                   (cmd)+ RC
 
-{self._falseList = self._stack.pop()}
+{localFalseList = self._stack.pop()}
 
                                                                            )?
 
-{self._cmd = CommandIf.CommandIf(self._exprCondition, self._trueList, self._falseList)
+{self._cmd = CommandIf.CommandIf(localExprCondition, localTrueList, localFalseList)
 self._stack[-1].append(self._cmd)}
 
                                                                               ;
 
 cmdWhile: 'enquanto' LP (BOOL
 
-{self._whileCondition = self._input.LT(-1).text}
+{localwhileCondition = self._input.LT(-1).text}
 
-                              | term
+                              |
+{self._exprContent=""}
+                              (expr
 
-{self._whileCondition = self._input.LT(-1).text}
+{localwhileCondition = self._exprContent}
 
                                       ROP
 
-{self._whileCondition += self._input.LT(-1).text}
+{localwhileCondition += self._input.LT(-1).text
+self._exprContent=""}
 
-                                          term
+                                          expr
 
-{self._whileCondition += self._input.LT(-1).text}
+{localwhileCondition += self._exprContent}
 
-                                               ) RP LC
+                                               )) RP LC
 
 {self._currentThread = []
 self._stack.append(self._currentThread)}
@@ -234,7 +232,7 @@ self._stack.append(self._currentThread)}
                                                        (cmd)+ RC
 
 {self._whileList = self._stack.pop()
-self._cmd = CommandWhile.CommandWhile(self._whileCondition, self._whileList)
+self._cmd = CommandWhile.CommandWhile(localwhileCondition, self._whileList)
 self._stack[-1].append(self._cmd)}
 
                                                                  ;
@@ -246,24 +244,27 @@ self._stack.append(self._currentThread)}
 
                       (cmd)+ RC 'enquanto' LP (BOOL
 
-{self._doWhileCondition = self._input.LT(-1).text}
+{localdoWhileCondition = self._input.LT(-1).text}
 
-                                                    | term
+                                                  |
+{self._exprContent=""}
+                                                  (expr
 
-{self._doWhileCondition = self._input.LT(-1).text}
+{localdoWhileCondition = self._exprContent}
 
-                                                           ROP
+                                      ROP
 
-{self._doWhileCondition += self._input.LT(-1).text}
+{localdoWhileCondition += self._input.LT(-1).text
+self._exprContent=""}
 
-                                                               term
+                                          expr
 
-{self._doWhileCondition += self._input.LT(-1).text}
+{localdoWhileCondition += self._exprContent}
 
-                                                                   ) RP
+                                               )) RP
 
 {self._doWhileList = self._stack.pop()
-self._cmd = CommandDoWhile.CommandDoWhile(self._doWhileCondition, self._doWhileList)
+self._cmd = CommandDoWhile.CommandDoWhile(localdoWhileCondition, self._doWhileList)
 self._stack[-1].append(self._cmd)}
 
                                                                         DOT ;
@@ -319,14 +320,6 @@ ROP: '<' | '>' | '<=' | '>=' | '!=' | '==' ;
 
 AOP: '+' | '-' | '*' | '/' ;
 
-ADD: '+' ;
-
-SUB: '-' ;
-
-MULT: '*' ;
-
-DIV: '/' ;
-
 DOT: '.' ;
 
 COMMA: ',' ;
@@ -340,10 +333,3 @@ LC: '{' ;
 RC: '}' ;
 
 WS:	(' ' | '\t' | '\n' | '\r') -> skip ;
-
-
-
-
-
-
-

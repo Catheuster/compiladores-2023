@@ -1,6 +1,7 @@
 from typing import Dict
 from .IsiSymbol import IsiSymbol
 
+
 class IsiSymbolTable:
     def __init__(self):
         self.symbolTable: Dict[str, IsiSymbol] = {}

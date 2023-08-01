@@ -1,3 +1,3 @@
 class IsiSemanticException(RuntimeError):
-    def __init__(selfself, msg):
+    def __init__(self, msg):
         super().__init__(msg)

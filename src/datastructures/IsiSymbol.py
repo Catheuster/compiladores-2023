@@ -1,5 +1,6 @@
 from abc import ABC, abstractmethod
 
+
 class IsiSymbol(ABC):
     def __init__(self, identifier):
         self.identifier = identifier
