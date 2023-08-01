@@ -1,39 +1,33 @@
-# compiladores-2023
-projeto de compiladores 2023-2
+# IsiLanguage
 
-Especificações:\
--> Trabalharemos usando Python3\
--> Trabalharemos usando Antlr para Python3\
-	* Basta fazer pip install antlr4-python3-runtime para mais informações consulte "https://www.antlr.org/download.html"\
-	* Também precisa fazer pip install antlr4-tools, isso vai baixar os artefatos para gerar o Lexer,Parser e amigos\
-	* Depois deste último pip install será necessário acressentar ao PATH das local variables os binários que este último pip install fez (ele te informa onde estão na finalização do pip install)\
-	* Se fez tudo corretamente é só usar "antlr4 -Dlanguage=Python3 gramatica.g4 na pasta src para gerar os novos Lexer,Parser e amigos.\
+Compiladores
 
-Falta especificar:\
--> A forma de expressar ideia na nossa linguagem, isto é, seguiremos o padrão de palavras chaves em inglês? Ou faremos em português?\
+<br>
 
-Objetivos:\
--> Possui 2 tipos de variáveis [OBRIGATÓRIO]\
--> Possui a estrutura If.. Else [OBRIGATÓRIO]\
--> Possui a estrutura de controle while/do while [OBRIGATÓRIO]\
--> Operações Aritiméticas executadas corretamente [OBRIGATÓRIO]\
--> Atribuições realizadas corretamente [OBRIGATÓRIO]\
--> Possui operações de Entrada e Saída [OBRIGATÓRIO]\
--> Aceita números decimais [OBRIGATÓRIO]\
--> Verificar se a variável já foi previamente declarada [OBRIGATÓRIO]\
--> Verificar se a variável foi declarada e não foi usada [OBRIGATÓRIO]\
--> Verificar se uma variável está sendo usada sem ter valor inicial [OBRIGATÓRIO]\
--> Editor Highlight (simulando uma pequena IDE) [Opcional valor 3]\
--> Avaliador de expressões aritméticas [Opcional valor 3]\
--> Inserção de Operadores lógicos [Opcional valor 2]\
--> Geração de várias linguagens-alvo [Opcional valor 3]\
--> Uma API Rest para implementação do compilador [Opcional valor 4]\
--> Um Interpretador (runtime) para a linguagem [Opcional valor 5]\
+## Checklist
 
-Critério de avaliação:\
-	-Se todos itens obrigatórios perfeitos = C\
-	-Se ainda assim tiver pelo menos 7 pontos opcionais = B\
-	-Se ainda assim tiver 10 ou mais pontos opcionais = A\
+### Itens Obrigatórios
 
-Recursos:\
--> Cookbook de antlr para python3: "https://github.com/jszheng/py3antlr4book"\
+|       |                                                                  |         |
+| :---: | :--------------------------------------------------------------  | ------- |
+|   1   | Possui 2 tipos de variáveis                                      | &check; |
+|   2   | Possui a estrutura If.. else                                     | &check; | 
+|   3   | Possui estrutura de controle while/do while                      | &check; |
+|   4   | Operações Aritméticas executadas corretamente                    | &check; |
+|   5   | Atribuições realizadas corretamente                              | &check; |   
+|   6   | Possui operações de Entrada e Saída                              | &check; |
+|   7   | Aceita números decimais                                          | &check; |
+|   8   | Verificar se a variável já foi previamente declarada             | &check; |
+|   9   | Verificar se a variável foi declarada e não foi usada            | &check; |
+|   10  | Verificar se uma variável está sendo usada sem ter valor inicial | &check; |
+
+### Itens Opcionais
+
+|       | Item                                          | Complexidade |         |
+| :---: | :-------------------------------------------- | -----------: | ------- |
+|   1   | Editor Highlight (simulando uma pequena IDE)  |      3       |         |
+|   2   | Avaliador de expressões aritméticas           |      3       | &check; | 
+|   3   | Inserção de Operadores lógicos                |      2       |         | 
+|   4   | Geração de várias linguagens-alvo             |      3       |         | 
+|   5   | Uma API Rest para implementação do compilador |      4       |         | 
+|   6   | Um Interpretador (runtime) para a linguagem   |      5       |         | 
