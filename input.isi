@@ -1,0 +1,45 @@
+programa
+
+	numero a, b, c, x.
+
+	texto t1.
+
+	booleano d.
+
+	leia(a).
+
+    d := verdadeiro .
+
+	b := 3.
+	a := 6.5.
+
+	a := (1 + 4 + 8) * 2.
+
+	t1 := "txt123".
+
+	escreva(b).
+
+    se (a > b) entao {
+        leia(c).
+    }
+    senao {
+        leia(c).
+        escreva("atirei o pau no gatoto").
+        se (b < a) entao {
+            escreva("teste").
+        }
+    }
+
+	enquanto (a > b) {
+        escreva(a).
+        a := 3.
+        b := 4.
+    }
+
+    faca {
+        escreva(a).
+        a := 3.
+        b := 4.
+    } enquanto (a < b).
+
+fimprog.
