@@ -7,7 +7,7 @@ from src.exceptions.IsiSemanticException import IsiSemanticException
 
 if __name__ == '__main__':
     try:
-        lexer = IsiLanguageLexer(FileStream("../../input.isi"))
+        lexer = IsiLanguageLexer(FileStream("input.isi"))
 
         token_stream = CommonTokenStream(lexer)
 

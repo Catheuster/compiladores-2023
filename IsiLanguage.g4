@@ -155,7 +155,7 @@ if self._identifier not in self._initializedVariables:
 
 {self._exprContent = ""}
 
-                   expr DOT
+                   (algExpr|boolExpr|strExpr) DOT
 
 {self.verifyType(self._identifier, self._type)
 self._cmd = CommandAssign.CommandAssign(self._identifier, self._exprContent)
@@ -163,22 +163,10 @@ self._stack[-1].append(self._cmd)}
 
                    ;
 
-cmdIf: 'se' LP (BOOL
-{localExprCondition = self._input.LT(-1).text}
-                  |
+cmdIf: 'se' LP 
 {self._exprContent = ""}
-                (expr
-
+                boolExpr
 {localExprCondition = self._exprContent}
-
-                     ROP
-
-{localExprCondition += self._input.LT(-1).text
-self._exprContent = ""}
-
-                         expr
-
-{localExprCondition += self._exprContent}))
 
                               RP 'entao' LC
 
@@ -205,26 +193,11 @@ self._stack[-1].append(self._cmd)}
 
                                                                               ;
 
-cmdWhile: 'enquanto' LP (BOOL
-
-{localwhileCondition = self._input.LT(-1).text}
-
-                              |
+cmdWhile: 'enquanto' LP 
 {self._exprContent=""}
-                              (expr
-
-{localwhileCondition = self._exprContent}
-
-                                      ROP
-
-{localwhileCondition += self._input.LT(-1).text
-self._exprContent=""}
-
-                                          expr
-
-{localwhileCondition += self._exprContent}
-
-                                               )) RP LC
+                              boolExpr
+{localwhileCondition = self._exprContent} 
+                                RP LC
 
 {self._currentThread = []
 self._stack.append(self._currentThread)}
@@ -242,26 +215,12 @@ cmdDoWhile: 'faca' LC
 {self._currentThread = []
 self._stack.append(self._currentThread)}
 
-                      (cmd)+ RC 'enquanto' LP (BOOL
-
-{localdoWhileCondition = self._input.LT(-1).text}
-
-                                                  |
+                      (cmd)+ RC 'enquanto' LP 
 {self._exprContent=""}
-                                                  (expr
-
+                            boolExpr
 {localdoWhileCondition = self._exprContent}
 
-                                      ROP
-
-{localdoWhileCondition += self._input.LT(-1).text
-self._exprContent=""}
-
-                                          expr
-
-{localdoWhileCondition += self._exprContent}
-
-                                               )) RP
+                                                RP
 
 {self._doWhileList = self._stack.pop()
 self._cmd = CommandDoWhile.CommandDoWhile(localdoWhileCondition, self._doWhileList)
@@ -269,42 +228,77 @@ self._stack[-1].append(self._cmd)}
 
                                                                         DOT ;
 
-expr:	term (AOP
+algExpr:	algTerm (AOP
 
 {self._exprContent += self._input.LT(-1).text}
 
-                   term)* ;
+                   algTerm)* ;
 
-term: ID
+boolExpr:   boolTerm (BOP
+
+{self._exprContent += self._input.LT(-1).text
+print(self._exprContent)}
+
+                    boolTerm)*
+                    | LP
+
+{self._exprContent += '('}
+
+                        boolExpr RP
+
+{self._exprContent += ')'};
+
+strExpr: strTerm;
+
+boolTerm: (ID 
 
 {self.verifyID(self._input.LT(-1).text)
-self._type = self._symbolTable.get(self._input.LT(-1).text).getType()
-self._exprContent += self._input.LT(-1).text}
+self._exprContent += self._input.LT(-1).text
+self.verifyType(self._input.LT(-1).text, IsiVariable.IsiVariable.BOOL)
+}
+            | BOOL 
+
+{self._exprContent += self._input.LT(-1).text
+self._type = IsiVariable.IsiVariable.BOOL}
+
+                | algExpr 
+
+                    ROP 
+
+{self._exprContent += self._input.LT(-1).text}
+
+                        algExpr)
+
+{self._type = IsiVariable.IsiVariable.BOOL};
+
+algTerm: (ID
+
+{self.verifyID(self._input.LT(-1).text)
+self._exprContent += self._input.LT(-1).text
+self.verifyType(self._input.LT(-1).text, IsiVariable.IsiVariable.NUMBER)}
 
           | NUM
 
 {self._type = IsiVariable.IsiVariable.NUMBER
 self._exprContent += self._input.LT(-1).text}
-
-               | TEXT
-
-{self._type = IsiVariable.IsiVariable.TEXT
-self._exprContent += self._input.LT(-1).text}
-
-                      | BOOL
-
-{self._type = IsiVariable.IsiVariable.BOOL
-self._exprContent += self._input.LT(-1).text}
-
-                             | LP
+            | LP
 
 {self._exprContent += '('}
 
-                                  expr RP
+                algExpr RP
 
-{self._exprContent += ')'}
+{self._exprContent += ')'})
 
-                                          ;
+{self._type = IsiVariable.IsiVariable.NUMBER};
+
+strTerm: (ID
+{self.verifyID(self._input.LT(-1).text)
+self._exprContent += self._input.LT(-1).text
+self.verifyType(self._input.LT(-1).text, IsiVariable.IsiVariable.TEXT)}
+            | TEXT
+            {self._exprContent += self._input.LT(-1).text})
+
+{self._type = IsiVariable.IsiVariable.TEXT};
 
 BOOL: 'verdadeiro' | 'falso' ;
 
@@ -319,6 +313,8 @@ ASGN: ':=' ;
 ROP: '<' | '>' | '<=' | '>=' | '!=' | '==' ;
 
 AOP: '+' | '-' | '*' | '/' ;
+
+BOP : '&&'| '||';
 
 DOT: '.' ;
 
