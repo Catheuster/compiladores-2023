@@ -41,7 +41,7 @@ class IsiProgram:
         str += "\n"
         for command in self.commands:
             str += command.generatePythonCode() + "\n"
-        str = str.replace("verdadeiro", "true").replace("falso", "false")
+        str = str.replace("verdadeiro", "True").replace("falso", "False")
         str = str.replace(" && ", " and ").replace(" || "," or ")
         try:
             with open("MainScript.py", "w") as file:
