@@ -35,7 +35,7 @@ class IsiVariable(IsiSymbol):
             return f"boolean {self.identifier};\n"
 
     def generatePythonCode(self):
-        return f"{self.identifier}\n"
+        return f"{self.identifier}=None\n"
 
     def generateJavaScriptCode(self):
-        return f"let {self.identifier};\n"
+        return f"{self.identifier}=null;\n"

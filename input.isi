@@ -30,7 +30,7 @@ programa
         }
     }
 
-	enquanto ((a+c) > b) {
+	enquanto (a > b) {
         escreva(a).
         a := 3.
         b := 4.
@@ -38,8 +38,8 @@ programa
 
     faca {
         escreva(a).
-        a := 3.
+        a := 6.
         b := 4.
-    } enquanto (a < (b+c)).
+    } enquanto (a < b).
 
 fimprog.

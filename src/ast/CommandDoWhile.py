@@ -16,15 +16,15 @@ class CommandDoWhile(AbstractCommand):
         return str
 
     def generatePythonCode(self):
-        str = "while (True):\n"
+        str = "while True:\n"
         strhelp = ""
         for command in self.commandList:
-            strhelp += command.generateJavaCode()
+            strhelp += command.generatePythonCode()
         strhelp = strhelp.replace("\n", "\n\t")
-        strhelp = strhelp[:-2] #removing last \t
+        strhelp = strhelp[:-1] #removing last \t
         str += "\t"+strhelp
         str += f"\tif {self.condition}:\n"
-        str += "\t\t continue\n"
+        str += "\t\tcontinue\n"
         str += "\telse:\n"
         str += "\t\tbreak\n"
 

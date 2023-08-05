@@ -35,7 +35,7 @@ if (b<a) {
 System.out.println("teste");
 }
 }
-while ((a+c)>b) {
+while (a>b) {
 System.out.println(a);
 a = 3;
 b = 4;
@@ -43,9 +43,9 @@ b = 4;
 
 do {
 System.out.println(a);
-a = 3;
+a = 6;
 b = 4;
-} while (a<(b+c));
+} while (a<b);
 
 }
 }

@@ -46,8 +46,8 @@ def exibeComandos(self):
     for command in self._program.getCommands():
         print(command)
 
-def generateJavaCode(self):
-    self._program.generateTarget()
+def generateCode(self, choice=1):
+    self._program.generateTarget(choice)
 }
 
 prog: 'programa' (declaration | block)+ 'fimprog.'

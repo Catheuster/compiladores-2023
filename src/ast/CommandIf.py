@@ -30,7 +30,7 @@ class CommandIf(AbstractCommand):
         for command in self.trueList:
             strhelp += command.generatePythonCode()
         strhelp = strhelp.replace("\n","\n\t")
-        strhelp = strhelp[:-2] #deleting last \t
+        strhelp = strhelp[:-1] #deleting last \t
         str += "\t"+strhelp
         strhelp = ""
         if self.falseList:
@@ -38,7 +38,7 @@ class CommandIf(AbstractCommand):
             for command in self.falseList:
                 strhelp += command.generatePythonCode()
             strhelp = strhelp.replace("\n", "\n\t")
-            strhelp = strhelp[:-2]  # deleting last \t
+            strhelp = strhelp[:-1]  # deleting last \t
             str += "\t" + strhelp
         return str
 

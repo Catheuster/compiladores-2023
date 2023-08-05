@@ -7,7 +7,7 @@ from src.exceptions.IsiSemanticException import IsiSemanticException
 
 if __name__ == '__main__':
     try:
-        lexer = IsiLanguageLexer(FileStream("input.isi"))
+        lexer = IsiLanguageLexer(FileStream("../../input.isi"))
 
         token_stream = CommonTokenStream(lexer)
 
@@ -19,7 +19,9 @@ if __name__ == '__main__':
 
         parser.exibeComandos()
 
-        parser.generateJavaCode()
+        parser.generateCode(1)
+        parser.generateCode(2)
+        parser.generateCode(3)
 
     except IsiSemanticException as e:
         print("Erro semântico:", e)

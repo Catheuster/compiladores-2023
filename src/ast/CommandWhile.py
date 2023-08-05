@@ -22,7 +22,7 @@ class CommandWhile(AbstractCommand):
         for command in self.commandList:
             strhelp += command.generatePythonCode()
         strhelp = strhelp.replace("\n", "\n\t")
-        strhelp = strhelp[:-2]  # deleting last \t
+        strhelp = strhelp[:-1]  # deleting last \t
         str += "\t"+strhelp
         return str
 

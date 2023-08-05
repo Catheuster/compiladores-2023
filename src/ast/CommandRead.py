@@ -15,14 +15,14 @@ class CommandRead(AbstractCommand):
 
     def generatePythonCode(self):
         if self.variable.getType() == IsiVariable.IsiVariable.NUMBER:
-            return f"{self.identifier} = double(input())\n"
+            return f"{self.identifier} = float(input())\n"
         else:
             return f"{self.identifier} = input()\n"
 
-    def generateJavaScripCode(self):
+    def generateJavaScriptCode(self):
         if self.variable.getType() == IsiVariable.IsiVariable.NUMBER:
-            return f"{self.identifier} = readFloat(prompt);\n"
+            return f"{self.identifier} = parseFloat(prompt());\n"
         else:
-            return f"{self.identifier} = readLine(prompt);\n"
+            return f"{self.identifier} = prompt();\n"
     def __str__(self):
         return f"CommandRead [id={self.identifier}]"
