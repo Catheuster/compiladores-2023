@@ -17,3 +17,11 @@ class IsiSymbol(ABC):
     @abstractmethod
     def generateJavaCode(self):
         return
+
+    @abstractmethod
+    def generatePythonCode(self):
+        pass
+
+    @abstractmethod
+    def generateJavaScriptCode(self):
+        pass

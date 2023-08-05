@@ -27,10 +27,15 @@ class IsiVariable(IsiSymbol):
         return f"IsiVariable [name={self.identifier}, type={self.type}, value={self.value}]"
 
     def generateJavaCode(self):
-        str = ""
         if self.type == IsiVariable.NUMBER:
-            return f"double {self.identifier};"
+            return f"double {self.identifier};\n"
         if self.type == IsiVariable.TEXT:
-            return f"String {self.identifier};"
+            return f"String {self.identifier};\n"
         else:
-            return f"boolean {self.identifier};"
+            return f"boolean {self.identifier};\n"
+
+    def generatePythonCode(self):
+        return f"{self.identifier}\n"
+
+    def generateJavaScriptCode(self):
+        return f"let {self.identifier};\n"

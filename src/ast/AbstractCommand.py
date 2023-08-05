@@ -6,3 +6,11 @@ class AbstractCommand:
         @abstractmethod
         def generateJavaCode(self):
             pass
+
+        @abstractmethod
+        def generatePythonCode(self):
+            pass
+
+        @abstractmethod
+        def generateJavaScriptCode(self):
+            pass
