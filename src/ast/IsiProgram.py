@@ -27,6 +27,7 @@ class IsiProgram:
         str += "}\n"
 
         str = str.replace("verdadeiro", "true").replace("falso", "false")
+        str = str.replace("++", '+')
 
         try:
             with open("MainClass.java", "w") as file:
@@ -43,6 +44,7 @@ class IsiProgram:
             str += command.generatePythonCode() + "\n"
         str = str.replace("verdadeiro", "True").replace("falso", "False")
         str = str.replace(" && ", " and ").replace(" || "," or ")
+        str = str.replace("++", '+')
         try:
             with open("MainScript.py", "w") as file:
                 file.write(str)
@@ -57,6 +59,7 @@ class IsiProgram:
         for command in self.commands:
             str += command.generateJavaScriptCode() + "\n"
         str = str.replace("verdadeiro", "true").replace("falso", "false")
+        str = str.replace("++", '+')
         try:
             with open("MainScript.js", "w") as file:
                 file.write(str)
