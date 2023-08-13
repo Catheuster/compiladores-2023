@@ -24,87 +24,72 @@ from ..exceptions import IsiSemanticException
 
 def serializedATN():
     return [
-        4,1,27,240,2,0,7,0,2,1,7,1,2,2,7,2,2,3,7,3,2,4,7,4,2,5,7,5,2,6,7,
-        6,2,7,7,7,2,8,7,8,2,9,7,9,2,10,7,10,2,11,7,11,2,12,7,12,2,13,7,13,
-        2,14,7,14,2,15,7,15,2,16,7,16,1,0,1,0,1,0,4,0,38,8,0,11,0,12,0,39,
-        1,0,1,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,5,1,51,8,1,10,1,12,1,54,9,1,
-        1,1,1,1,1,2,1,2,1,2,1,2,1,2,1,2,3,2,64,8,2,1,3,1,3,4,3,68,8,3,11,
-        3,12,3,69,1,4,1,4,1,4,1,4,1,4,1,4,3,4,78,8,4,1,5,1,5,1,5,1,5,1,5,
-        1,5,1,5,1,5,1,6,1,6,1,6,1,6,1,6,1,6,3,6,94,8,6,1,6,1,6,1,6,1,6,1,
-        7,1,7,1,7,1,7,1,7,1,7,1,7,3,7,107,8,7,1,7,1,7,1,7,1,8,1,8,1,8,1,
-        8,1,8,1,8,1,8,1,8,1,8,1,8,4,8,122,8,8,11,8,12,8,123,1,8,1,8,1,8,
-        1,8,1,8,1,8,4,8,132,8,8,11,8,12,8,133,1,8,1,8,1,8,3,8,139,8,8,1,
-        8,1,8,1,9,1,9,1,9,1,9,1,9,1,9,1,9,1,9,1,9,4,9,152,8,9,11,9,12,9,
-        153,1,9,1,9,1,9,1,10,1,10,1,10,1,10,4,10,163,8,10,11,10,12,10,164,
-        1,10,1,10,1,10,1,10,1,10,1,10,1,10,1,10,1,10,1,10,1,11,1,11,1,11,
-        1,11,5,11,181,8,11,10,11,12,11,184,9,11,1,12,1,12,1,12,1,12,5,12,
-        190,8,12,10,12,12,12,193,9,12,1,12,1,12,1,12,1,12,1,12,1,12,3,12,
-        201,8,12,1,13,1,13,1,14,1,14,1,14,1,14,1,14,1,14,1,14,1,14,1,14,
-        3,14,214,8,14,1,14,1,14,1,15,1,15,1,15,1,15,1,15,1,15,1,15,1,15,
-        1,15,1,15,3,15,228,8,15,1,15,1,15,1,16,1,16,1,16,1,16,3,16,236,8,
-        16,1,16,1,16,1,16,0,0,17,0,2,4,6,8,10,12,14,16,18,20,22,24,26,28,
-        30,32,0,0,249,0,34,1,0,0,0,2,44,1,0,0,0,4,63,1,0,0,0,6,65,1,0,0,
-        0,8,77,1,0,0,0,10,79,1,0,0,0,12,87,1,0,0,0,14,99,1,0,0,0,16,111,
-        1,0,0,0,18,142,1,0,0,0,20,158,1,0,0,0,22,176,1,0,0,0,24,200,1,0,
-        0,0,26,202,1,0,0,0,28,213,1,0,0,0,30,227,1,0,0,0,32,235,1,0,0,0,
-        34,37,5,1,0,0,35,38,3,2,1,0,36,38,3,6,3,0,37,35,1,0,0,0,37,36,1,
-        0,0,0,38,39,1,0,0,0,39,37,1,0,0,0,39,40,1,0,0,0,40,41,1,0,0,0,41,
-        42,5,2,0,0,42,43,6,0,-1,0,43,1,1,0,0,0,44,45,3,4,2,0,45,46,5,14,
-        0,0,46,52,6,1,-1,0,47,48,5,22,0,0,48,49,5,14,0,0,49,51,6,1,-1,0,
-        50,47,1,0,0,0,51,54,1,0,0,0,52,50,1,0,0,0,52,53,1,0,0,0,53,55,1,
-        0,0,0,54,52,1,0,0,0,55,56,5,21,0,0,56,3,1,0,0,0,57,58,5,3,0,0,58,
-        64,6,2,-1,0,59,60,5,4,0,0,60,64,6,2,-1,0,61,62,5,5,0,0,62,64,6,2,
-        -1,0,63,57,1,0,0,0,63,59,1,0,0,0,63,61,1,0,0,0,64,5,1,0,0,0,65,67,
-        6,3,-1,0,66,68,3,8,4,0,67,66,1,0,0,0,68,69,1,0,0,0,69,67,1,0,0,0,
-        69,70,1,0,0,0,70,7,1,0,0,0,71,78,3,10,5,0,72,78,3,12,6,0,73,78,3,
-        14,7,0,74,78,3,16,8,0,75,78,3,18,9,0,76,78,3,20,10,0,77,71,1,0,0,
-        0,77,72,1,0,0,0,77,73,1,0,0,0,77,74,1,0,0,0,77,75,1,0,0,0,77,76,
-        1,0,0,0,78,9,1,0,0,0,79,80,5,6,0,0,80,81,5,23,0,0,81,82,5,14,0,0,
-        82,83,6,5,-1,0,83,84,5,24,0,0,84,85,5,21,0,0,85,86,6,5,-1,0,86,11,
-        1,0,0,0,87,88,5,7,0,0,88,93,5,23,0,0,89,90,5,15,0,0,90,94,6,6,-1,
-        0,91,92,5,14,0,0,92,94,6,6,-1,0,93,89,1,0,0,0,93,91,1,0,0,0,94,95,
-        1,0,0,0,95,96,5,24,0,0,96,97,5,21,0,0,97,98,6,6,-1,0,98,13,1,0,0,
-        0,99,100,5,14,0,0,100,101,6,7,-1,0,101,102,5,17,0,0,102,106,6,7,
-        -1,0,103,107,3,22,11,0,104,107,3,24,12,0,105,107,3,26,13,0,106,103,
-        1,0,0,0,106,104,1,0,0,0,106,105,1,0,0,0,107,108,1,0,0,0,108,109,
-        5,21,0,0,109,110,6,7,-1,0,110,15,1,0,0,0,111,112,5,8,0,0,112,113,
-        5,23,0,0,113,114,6,8,-1,0,114,115,3,24,12,0,115,116,6,8,-1,0,116,
-        117,5,24,0,0,117,118,5,9,0,0,118,119,5,25,0,0,119,121,6,8,-1,0,120,
-        122,3,8,4,0,121,120,1,0,0,0,122,123,1,0,0,0,123,121,1,0,0,0,123,
-        124,1,0,0,0,124,125,1,0,0,0,125,126,5,26,0,0,126,138,6,8,-1,0,127,
-        128,5,10,0,0,128,129,5,25,0,0,129,131,6,8,-1,0,130,132,3,8,4,0,131,
-        130,1,0,0,0,132,133,1,0,0,0,133,131,1,0,0,0,133,134,1,0,0,0,134,
-        135,1,0,0,0,135,136,5,26,0,0,136,137,6,8,-1,0,137,139,1,0,0,0,138,
-        127,1,0,0,0,138,139,1,0,0,0,139,140,1,0,0,0,140,141,6,8,-1,0,141,
-        17,1,0,0,0,142,143,5,11,0,0,143,144,5,23,0,0,144,145,6,9,-1,0,145,
-        146,3,24,12,0,146,147,6,9,-1,0,147,148,5,24,0,0,148,149,5,25,0,0,
-        149,151,6,9,-1,0,150,152,3,8,4,0,151,150,1,0,0,0,152,153,1,0,0,0,
-        153,151,1,0,0,0,153,154,1,0,0,0,154,155,1,0,0,0,155,156,5,26,0,0,
-        156,157,6,9,-1,0,157,19,1,0,0,0,158,159,5,12,0,0,159,160,5,25,0,
-        0,160,162,6,10,-1,0,161,163,3,8,4,0,162,161,1,0,0,0,163,164,1,0,
-        0,0,164,162,1,0,0,0,164,165,1,0,0,0,165,166,1,0,0,0,166,167,5,26,
-        0,0,167,168,5,11,0,0,168,169,5,23,0,0,169,170,6,10,-1,0,170,171,
-        3,24,12,0,171,172,6,10,-1,0,172,173,5,24,0,0,173,174,6,10,-1,0,174,
-        175,5,21,0,0,175,21,1,0,0,0,176,182,3,30,15,0,177,178,5,19,0,0,178,
-        179,6,11,-1,0,179,181,3,30,15,0,180,177,1,0,0,0,181,184,1,0,0,0,
-        182,180,1,0,0,0,182,183,1,0,0,0,183,23,1,0,0,0,184,182,1,0,0,0,185,
-        191,3,28,14,0,186,187,5,20,0,0,187,188,6,12,-1,0,188,190,3,28,14,
-        0,189,186,1,0,0,0,190,193,1,0,0,0,191,189,1,0,0,0,191,192,1,0,0,
-        0,192,201,1,0,0,0,193,191,1,0,0,0,194,195,5,23,0,0,195,196,6,12,
-        -1,0,196,197,3,24,12,0,197,198,5,24,0,0,198,199,6,12,-1,0,199,201,
-        1,0,0,0,200,185,1,0,0,0,200,194,1,0,0,0,201,25,1,0,0,0,202,203,3,
-        32,16,0,203,27,1,0,0,0,204,205,5,14,0,0,205,214,6,14,-1,0,206,207,
-        5,13,0,0,207,214,6,14,-1,0,208,209,3,22,11,0,209,210,5,18,0,0,210,
-        211,6,14,-1,0,211,212,3,22,11,0,212,214,1,0,0,0,213,204,1,0,0,0,
-        213,206,1,0,0,0,213,208,1,0,0,0,214,215,1,0,0,0,215,216,6,14,-1,
-        0,216,29,1,0,0,0,217,218,5,14,0,0,218,228,6,15,-1,0,219,220,5,16,
-        0,0,220,228,6,15,-1,0,221,222,5,23,0,0,222,223,6,15,-1,0,223,224,
-        3,22,11,0,224,225,5,24,0,0,225,226,6,15,-1,0,226,228,1,0,0,0,227,
-        217,1,0,0,0,227,219,1,0,0,0,227,221,1,0,0,0,228,229,1,0,0,0,229,
-        230,6,15,-1,0,230,31,1,0,0,0,231,232,5,14,0,0,232,236,6,16,-1,0,
-        233,234,5,15,0,0,234,236,6,16,-1,0,235,231,1,0,0,0,235,233,1,0,0,
-        0,236,237,1,0,0,0,237,238,6,16,-1,0,238,33,1,0,0,0,19,37,39,52,63,
-        69,77,93,106,123,133,138,153,164,182,191,200,213,227,235
+        4,1,29,198,2,0,7,0,2,1,7,1,2,2,7,2,2,3,7,3,2,4,7,4,2,5,7,5,2,6,7,
+        6,2,7,7,7,2,8,7,8,2,9,7,9,2,10,7,10,2,11,7,11,2,12,7,12,1,0,1,0,
+        1,0,4,0,30,8,0,11,0,12,0,31,1,0,1,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,
+        5,1,43,8,1,10,1,12,1,46,9,1,1,1,1,1,1,2,1,2,1,2,1,2,1,2,1,2,3,2,
+        56,8,2,1,3,1,3,4,3,60,8,3,11,3,12,3,61,1,4,1,4,1,4,1,4,1,4,1,4,3,
+        4,70,8,4,1,5,1,5,1,5,1,5,1,5,1,5,1,5,1,5,1,6,1,6,1,6,1,6,1,6,1,6,
+        3,6,86,8,6,1,6,1,6,1,6,1,6,1,7,1,7,1,7,1,7,1,7,1,7,1,7,1,7,1,8,1,
+        8,1,8,1,8,1,8,1,8,1,8,1,8,1,8,1,8,4,8,110,8,8,11,8,12,8,111,1,8,
+        1,8,1,8,1,8,1,8,1,8,4,8,120,8,8,11,8,12,8,121,1,8,1,8,1,8,3,8,127,
+        8,8,1,8,1,8,1,9,1,9,1,9,1,9,1,9,1,9,1,9,1,9,1,9,4,9,140,8,9,11,9,
+        12,9,141,1,9,1,9,1,9,1,10,1,10,1,10,1,10,4,10,151,8,10,11,10,12,
+        10,152,1,10,1,10,1,10,1,10,1,10,1,10,1,10,1,10,1,10,1,10,1,11,1,
+        11,1,11,1,11,1,11,1,11,5,11,171,8,11,10,11,12,11,174,9,11,1,11,1,
+        11,1,12,1,12,1,12,1,12,1,12,1,12,1,12,1,12,3,12,186,8,12,1,12,1,
+        12,1,12,1,12,1,12,1,12,1,12,1,12,3,12,196,8,12,1,12,0,0,13,0,2,4,
+        6,8,10,12,14,16,18,20,22,24,0,0,206,0,26,1,0,0,0,2,36,1,0,0,0,4,
+        55,1,0,0,0,6,57,1,0,0,0,8,69,1,0,0,0,10,71,1,0,0,0,12,79,1,0,0,0,
+        14,91,1,0,0,0,16,99,1,0,0,0,18,130,1,0,0,0,20,146,1,0,0,0,22,164,
+        1,0,0,0,24,195,1,0,0,0,26,29,5,1,0,0,27,30,3,2,1,0,28,30,3,6,3,0,
+        29,27,1,0,0,0,29,28,1,0,0,0,30,31,1,0,0,0,31,29,1,0,0,0,31,32,1,
+        0,0,0,32,33,1,0,0,0,33,34,5,2,0,0,34,35,6,0,-1,0,35,1,1,0,0,0,36,
+        37,3,4,2,0,37,38,5,15,0,0,38,44,6,1,-1,0,39,40,5,24,0,0,40,41,5,
+        15,0,0,41,43,6,1,-1,0,42,39,1,0,0,0,43,46,1,0,0,0,44,42,1,0,0,0,
+        44,45,1,0,0,0,45,47,1,0,0,0,46,44,1,0,0,0,47,48,5,23,0,0,48,3,1,
+        0,0,0,49,50,5,3,0,0,50,56,6,2,-1,0,51,52,5,4,0,0,52,56,6,2,-1,0,
+        53,54,5,5,0,0,54,56,6,2,-1,0,55,49,1,0,0,0,55,51,1,0,0,0,55,53,1,
+        0,0,0,56,5,1,0,0,0,57,59,6,3,-1,0,58,60,3,8,4,0,59,58,1,0,0,0,60,
+        61,1,0,0,0,61,59,1,0,0,0,61,62,1,0,0,0,62,7,1,0,0,0,63,70,3,10,5,
+        0,64,70,3,12,6,0,65,70,3,14,7,0,66,70,3,16,8,0,67,70,3,18,9,0,68,
+        70,3,20,10,0,69,63,1,0,0,0,69,64,1,0,0,0,69,65,1,0,0,0,69,66,1,0,
+        0,0,69,67,1,0,0,0,69,68,1,0,0,0,70,9,1,0,0,0,71,72,5,6,0,0,72,73,
+        5,25,0,0,73,74,5,15,0,0,74,75,6,5,-1,0,75,76,5,26,0,0,76,77,5,23,
+        0,0,77,78,6,5,-1,0,78,11,1,0,0,0,79,80,5,7,0,0,80,85,5,25,0,0,81,
+        82,5,16,0,0,82,86,6,6,-1,0,83,84,5,15,0,0,84,86,6,6,-1,0,85,81,1,
+        0,0,0,85,83,1,0,0,0,86,87,1,0,0,0,87,88,5,26,0,0,88,89,5,23,0,0,
+        89,90,6,6,-1,0,90,13,1,0,0,0,91,92,5,15,0,0,92,93,6,7,-1,0,93,94,
+        5,18,0,0,94,95,6,7,-1,0,95,96,3,22,11,0,96,97,5,23,0,0,97,98,6,7,
+        -1,0,98,15,1,0,0,0,99,100,5,8,0,0,100,101,5,25,0,0,101,102,6,8,-1,
+        0,102,103,3,22,11,0,103,104,6,8,-1,0,104,105,5,26,0,0,105,106,5,
+        9,0,0,106,107,5,27,0,0,107,109,6,8,-1,0,108,110,3,8,4,0,109,108,
+        1,0,0,0,110,111,1,0,0,0,111,109,1,0,0,0,111,112,1,0,0,0,112,113,
+        1,0,0,0,113,114,5,28,0,0,114,126,6,8,-1,0,115,116,5,10,0,0,116,117,
+        5,27,0,0,117,119,6,8,-1,0,118,120,3,8,4,0,119,118,1,0,0,0,120,121,
+        1,0,0,0,121,119,1,0,0,0,121,122,1,0,0,0,122,123,1,0,0,0,123,124,
+        5,28,0,0,124,125,6,8,-1,0,125,127,1,0,0,0,126,115,1,0,0,0,126,127,
+        1,0,0,0,127,128,1,0,0,0,128,129,6,8,-1,0,129,17,1,0,0,0,130,131,
+        5,11,0,0,131,132,5,25,0,0,132,133,6,9,-1,0,133,134,3,22,11,0,134,
+        135,6,9,-1,0,135,136,5,26,0,0,136,137,5,27,0,0,137,139,6,9,-1,0,
+        138,140,3,8,4,0,139,138,1,0,0,0,140,141,1,0,0,0,141,139,1,0,0,0,
+        141,142,1,0,0,0,142,143,1,0,0,0,143,144,5,28,0,0,144,145,6,9,-1,
+        0,145,19,1,0,0,0,146,147,5,12,0,0,147,148,5,27,0,0,148,150,6,10,
+        -1,0,149,151,3,8,4,0,150,149,1,0,0,0,151,152,1,0,0,0,152,150,1,0,
+        0,0,152,153,1,0,0,0,153,154,1,0,0,0,154,155,5,28,0,0,155,156,5,11,
+        0,0,156,157,5,25,0,0,157,158,6,10,-1,0,158,159,3,22,11,0,159,160,
+        6,10,-1,0,160,161,5,26,0,0,161,162,6,10,-1,0,162,163,5,23,0,0,163,
+        21,1,0,0,0,164,172,3,24,12,0,165,166,5,13,0,0,166,167,6,11,-1,0,
+        167,168,3,24,12,0,168,169,6,11,-1,0,169,171,1,0,0,0,170,165,1,0,
+        0,0,171,174,1,0,0,0,172,170,1,0,0,0,172,173,1,0,0,0,173,175,1,0,
+        0,0,174,172,1,0,0,0,175,176,6,11,-1,0,176,23,1,0,0,0,177,178,5,15,
+        0,0,178,186,6,12,-1,0,179,180,5,17,0,0,180,186,6,12,-1,0,181,182,
+        5,14,0,0,182,186,6,12,-1,0,183,184,5,16,0,0,184,186,6,12,-1,0,185,
+        177,1,0,0,0,185,179,1,0,0,0,185,181,1,0,0,0,185,183,1,0,0,0,186,
+        187,1,0,0,0,187,196,6,12,-1,0,188,189,5,25,0,0,189,190,6,12,-1,0,
+        190,191,3,22,11,0,191,192,5,26,0,0,192,193,6,12,-1,0,193,194,6,12,
+        -1,0,194,196,1,0,0,0,195,185,1,0,0,0,195,188,1,0,0,0,196,25,1,0,
+        0,0,15,29,31,44,55,61,69,85,111,121,126,141,152,172,185,195
     ]
 
 class IsiLanguageParser ( Parser ):
@@ -120,16 +105,16 @@ class IsiLanguageParser ( Parser ):
     literalNames = [ "<INVALID>", "'programa'", "'fimprog.'", "'numero'", 
                      "'texto'", "'booleano'", "'leia'", "'escreva'", "'se'", 
                      "'entao'", "'senao'", "'enquanto'", "'faca'", "<INVALID>", 
-                     "<INVALID>", "<INVALID>", "<INVALID>", "':='", "<INVALID>", 
-                     "<INVALID>", "<INVALID>", "'.'", "','", "'('", "')'", 
-                     "'{'", "'}'" ]
+                     "<INVALID>", "<INVALID>", "<INVALID>", "<INVALID>", 
+                     "':='", "<INVALID>", "<INVALID>", "<INVALID>", "'++'", 
+                     "'.'", "','", "'('", "')'", "'{'", "'}'" ]
 
     symbolicNames = [ "<INVALID>", "<INVALID>", "<INVALID>", "<INVALID>", 
                       "<INVALID>", "<INVALID>", "<INVALID>", "<INVALID>", 
                       "<INVALID>", "<INVALID>", "<INVALID>", "<INVALID>", 
-                      "<INVALID>", "BOOL", "ID", "TEXT", "NUM", "ASGN", 
-                      "ROP", "AOP", "BOP", "DOT", "COMMA", "LP", "RP", "LC", 
-                      "RC", "WS" ]
+                      "<INVALID>", "OP", "BOOL", "ID", "TEXT", "NUM", "ASGN", 
+                      "ROP", "AOP", "BOP", "SOP", "DOT", "COMMA", "LP", 
+                      "RP", "LC", "RC", "WS" ]
 
     RULE_prog = 0
     RULE_declaration = 1
@@ -142,17 +127,12 @@ class IsiLanguageParser ( Parser ):
     RULE_cmdIf = 8
     RULE_cmdWhile = 9
     RULE_cmdDoWhile = 10
-    RULE_algExpr = 11
-    RULE_boolExpr = 12
-    RULE_strExpr = 13
-    RULE_boolTerm = 14
-    RULE_algTerm = 15
-    RULE_strTerm = 16
+    RULE_expr = 11
+    RULE_term = 12
 
     ruleNames =  [ "prog", "declaration", "tipo", "block", "cmd", "cmdRead", 
                    "cmdWrite", "cmdAssign", "cmdIf", "cmdWhile", "cmdDoWhile", 
-                   "algExpr", "boolExpr", "strExpr", "boolTerm", "algTerm", 
-                   "strTerm" ]
+                   "expr", "term" ]
 
     EOF = Token.EOF
     T__0=1
@@ -167,21 +147,23 @@ class IsiLanguageParser ( Parser ):
     T__9=10
     T__10=11
     T__11=12
-    BOOL=13
-    ID=14
-    TEXT=15
-    NUM=16
-    ASGN=17
-    ROP=18
-    AOP=19
-    BOP=20
-    DOT=21
-    COMMA=22
-    LP=23
-    RP=24
-    LC=25
-    RC=26
-    WS=27
+    OP=13
+    BOOL=14
+    ID=15
+    TEXT=16
+    NUM=17
+    ASGN=18
+    ROP=19
+    AOP=20
+    BOP=21
+    SOP=22
+    DOT=23
+    COMMA=24
+    LP=25
+    RP=26
+    LC=27
+    RC=28
+    WS=29
 
     def __init__(self, input:TokenStream, output:TextIO = sys.stdout):
         super().__init__(input, output)
@@ -207,6 +189,8 @@ class IsiLanguageParser ( Parser ):
         self._exprCondition = None
         self._trueList = []
         self._falseList = []
+        self._expr_stack = []
+        self._typetable = ['numero','texto','booleano']
 
     def verifyID(self, identifier):
         if not self._symbolTable.exists(identifier):
@@ -215,7 +199,7 @@ class IsiLanguageParser ( Parser ):
     def verifyType(self, identifier, type):
         self._symbol = self._symbolTable.get(identifier)
         if self._symbol.getType() != type:
-            raise IsiSemanticException.IsiSemanticException("Símbolo '" + identifier + "' tem um tipo incompatível!\n")
+            raise IsiSemanticException.IsiSemanticException("Símbolo '" + identifier + "' e incompativel com o tipo " + self._typetable[type] + "\n")
 
     def exibeComandos(self):
         for command in self._program.getCommands():
@@ -223,6 +207,43 @@ class IsiLanguageParser ( Parser ):
 
     def generateCode(self, choice=1):
         self._program.generateTarget(choice)
+
+    def stack_op(self,op):
+        if op in ['<', '>', '<=', '>=', '!=', '==']:
+            self._expr_stack.append("ROP")
+        elif op in ['+', '-', '*', '/']:
+            self._expr_stack.append("AOP")
+        elif op in ['&&', '||']:
+            self._expr_stack.append("BOP")
+        elif op in ['++']:
+            self._expr_stack.append("SOP")
+
+    def verify_stack(self):
+        print('inicio')
+        print(self._expr_stack)
+        right_param = self._expr_stack.pop()
+        op = self._expr_stack.pop()
+        left_param = self._expr_stack.pop()
+
+        match op:
+            case 'AOP':
+                if (right_param != IsiVariable.IsiVariable.NUMBER) or (left_param != IsiVariable.IsiVariable.NUMBER):
+                    raise IsiSemanticException.IsiSemanticException('Opercao invalida')
+                self._expr_stack.append(IsiVariable.IsiVariable.NUMBER)
+            case 'ROP':
+                if (right_param != 0) or (left_param != 0):
+                    raise IsiSemanticException.IsiSemanticException('Opercao invalida')
+                self._expr_stack.append(IsiVariable.IsiVariable.BOOL)
+            case 'BOP':
+                if (right_param != IsiVariable.IsiVariable.BOOL) or (left_param != IsiVariable.IsiVariable.BOOL):
+                    raise IsiSemanticException.IsiSemanticException('Opercao invalida')
+                self._expr_stack.append(IsiVariable.IsiVariable.BOOL)
+            case 'SOP':
+                if (right_param != IsiVariable.IsiVariable.TEXT) or (left_param != IsiVariable.IsiVariable.TEXT):
+                    raise IsiSemanticException.IsiSemanticException('Opercao invalida')
+                self._expr_stack.append(IsiVariable.IsiVariable.TEXT)
+        print('fim')
+        print(self._expr_stack)
 
 
 
@@ -268,33 +289,33 @@ class IsiLanguageParser ( Parser ):
         self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 34
+            self.state = 26
             self.match(IsiLanguageParser.T__0)
-            self.state = 37 
+            self.state = 29 
             self._errHandler.sync(self)
             _la = self._input.LA(1)
             while True:
-                self.state = 37
+                self.state = 29
                 self._errHandler.sync(self)
                 token = self._input.LA(1)
                 if token in [3, 4, 5]:
-                    self.state = 35
+                    self.state = 27
                     self.declaration()
                     pass
-                elif token in [6, 7, 8, 11, 12, 14]:
-                    self.state = 36
+                elif token in [6, 7, 8, 11, 12, 15]:
+                    self.state = 28
                     self.block()
                     pass
                 else:
                     raise NoViableAltException(self)
 
-                self.state = 39 
+                self.state = 31 
                 self._errHandler.sync(self)
                 _la = self._input.LA(1)
-                if not ((((_la) & ~0x3f) == 0 and ((1 << _la) & 23032) != 0)):
+                if not ((((_la) & ~0x3f) == 0 and ((1 << _la) & 39416) != 0)):
                     break
 
-            self.state = 41
+            self.state = 33
             self.match(IsiLanguageParser.T__1)
             self._program.setVariableTable(self._symbolTable)
             self._program.setCommands(self._stack.pop())
@@ -356,9 +377,9 @@ class IsiLanguageParser ( Parser ):
         self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 44
+            self.state = 36
             self.tipo()
-            self.state = 45
+            self.state = 37
             self.match(IsiLanguageParser.ID)
             self._identifier = self._input.LT(-1).text;
             self._value = None
@@ -369,13 +390,13 @@ class IsiLanguageParser ( Parser ):
                 print(f"Símbolo adicionado: {self._symbol}")
             else:
                 raise IsiSemanticException.IsiSemanticException("Símbolo '" + self._identifier + "' já declarado.\n")
-            self.state = 52
+            self.state = 44
             self._errHandler.sync(self)
             _la = self._input.LA(1)
-            while _la==22:
-                self.state = 47
+            while _la==24:
+                self.state = 39
                 self.match(IsiLanguageParser.COMMA)
-                self.state = 48
+                self.state = 40
                 self.match(IsiLanguageParser.ID)
                 self._identifier = self._input.LT(-1).text;
                 self._value = None
@@ -386,11 +407,11 @@ class IsiLanguageParser ( Parser ):
                     print(f"Símbolo adicionado: {self._symbol}")
                 else:
                     raise IsiSemanticException.IsiSemanticException("Símbolo '" + self._identifier + "' já declarado.\n")
-                self.state = 54
+                self.state = 46
                 self._errHandler.sync(self)
                 _la = self._input.LA(1)
 
-            self.state = 55
+            self.state = 47
             self.match(IsiLanguageParser.DOT)
         except RecognitionException as re:
             localctx.exception = re
@@ -428,24 +449,24 @@ class IsiLanguageParser ( Parser ):
         localctx = IsiLanguageParser.TipoContext(self, self._ctx, self.state)
         self.enterRule(localctx, 4, self.RULE_tipo)
         try:
-            self.state = 63
+            self.state = 55
             self._errHandler.sync(self)
             token = self._input.LA(1)
             if token in [3]:
                 self.enterOuterAlt(localctx, 1)
-                self.state = 57
+                self.state = 49
                 self.match(IsiLanguageParser.T__2)
                 self._type = IsiVariable.IsiVariable.NUMBER
                 pass
             elif token in [4]:
                 self.enterOuterAlt(localctx, 2)
-                self.state = 59
+                self.state = 51
                 self.match(IsiLanguageParser.T__3)
                 self._type = IsiVariable.IsiVariable.TEXT
                 pass
             elif token in [5]:
                 self.enterOuterAlt(localctx, 3)
-                self.state = 61
+                self.state = 53
                 self.match(IsiLanguageParser.T__4)
                 self._type = IsiVariable.IsiVariable.BOOL
                 pass
@@ -497,17 +518,17 @@ class IsiLanguageParser ( Parser ):
             self.enterOuterAlt(localctx, 1)
             self._currentThread = []
             self._stack.append(self._currentThread)
-            self.state = 67 
+            self.state = 59 
             self._errHandler.sync(self)
             _alt = 1
             while _alt!=2 and _alt!=ATN.INVALID_ALT_NUMBER:
                 if _alt == 1:
-                    self.state = 66
+                    self.state = 58
                     self.cmd()
 
                 else:
                     raise NoViableAltException(self)
-                self.state = 69 
+                self.state = 61 
                 self._errHandler.sync(self)
                 _alt = self._interp.adaptivePredict(self._input,4,self._ctx)
 
@@ -570,37 +591,37 @@ class IsiLanguageParser ( Parser ):
         localctx = IsiLanguageParser.CmdContext(self, self._ctx, self.state)
         self.enterRule(localctx, 8, self.RULE_cmd)
         try:
-            self.state = 77
+            self.state = 69
             self._errHandler.sync(self)
             token = self._input.LA(1)
             if token in [6]:
                 self.enterOuterAlt(localctx, 1)
-                self.state = 71
+                self.state = 63
                 self.cmdRead()
                 pass
             elif token in [7]:
                 self.enterOuterAlt(localctx, 2)
-                self.state = 72
+                self.state = 64
                 self.cmdWrite()
                 pass
-            elif token in [14]:
+            elif token in [15]:
                 self.enterOuterAlt(localctx, 3)
-                self.state = 73
+                self.state = 65
                 self.cmdAssign()
                 pass
             elif token in [8]:
                 self.enterOuterAlt(localctx, 4)
-                self.state = 74
+                self.state = 66
                 self.cmdIf()
                 pass
             elif token in [11]:
                 self.enterOuterAlt(localctx, 5)
-                self.state = 75
+                self.state = 67
                 self.cmdWhile()
                 pass
             elif token in [12]:
                 self.enterOuterAlt(localctx, 6)
-                self.state = 76
+                self.state = 68
                 self.cmdDoWhile()
                 pass
             else:
@@ -654,11 +675,11 @@ class IsiLanguageParser ( Parser ):
         self.enterRule(localctx, 10, self.RULE_cmdRead)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 79
+            self.state = 71
             self.match(IsiLanguageParser.T__5)
-            self.state = 80
+            self.state = 72
             self.match(IsiLanguageParser.LP)
-            self.state = 81
+            self.state = 73
             self.match(IsiLanguageParser.ID)
             self.verifyID(self._input.LT(-1).text)
             self._readID = self._input.LT(-1).text
@@ -666,9 +687,9 @@ class IsiLanguageParser ( Parser ):
                 self._unusedVariables.remove(self._readID)
             if self._readID not in self._initializedVariables:
                 self._initializedVariables.append(self._readID)
-            self.state = 83
+            self.state = 75
             self.match(IsiLanguageParser.RP)
-            self.state = 84
+            self.state = 76
             self.match(IsiLanguageParser.DOT)
             self._value = self._symbolTable.get(self._readID)
             self._cmd = CommandRead.CommandRead(self._readID, self._value)
@@ -724,20 +745,20 @@ class IsiLanguageParser ( Parser ):
         self.enterRule(localctx, 12, self.RULE_cmdWrite)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 87
+            self.state = 79
             self.match(IsiLanguageParser.T__6)
-            self.state = 88
+            self.state = 80
             self.match(IsiLanguageParser.LP)
-            self.state = 93
+            self.state = 85
             self._errHandler.sync(self)
             token = self._input.LA(1)
-            if token in [15]:
-                self.state = 89
+            if token in [16]:
+                self.state = 81
                 self.match(IsiLanguageParser.TEXT)
                 self._writeInput = self._input.LT(-1).text
                 pass
-            elif token in [14]:
-                self.state = 91
+            elif token in [15]:
+                self.state = 83
                 self.match(IsiLanguageParser.ID)
                 self.verifyID(self._input.LT(-1).text)
                 self._writeInput = self._input.LT(-1).text
@@ -747,9 +768,9 @@ class IsiLanguageParser ( Parser ):
             else:
                 raise NoViableAltException(self)
 
-            self.state = 95
+            self.state = 87
             self.match(IsiLanguageParser.RP)
-            self.state = 96
+            self.state = 88
             self.match(IsiLanguageParser.DOT)
             self._cmd = CommandWrite.CommandWrite(self._writeInput)
             self._stack[-1].append(self._cmd)
@@ -778,16 +799,8 @@ class IsiLanguageParser ( Parser ):
         def DOT(self):
             return self.getToken(IsiLanguageParser.DOT, 0)
 
-        def algExpr(self):
-            return self.getTypedRuleContext(IsiLanguageParser.AlgExprContext,0)
-
-
-        def boolExpr(self):
-            return self.getTypedRuleContext(IsiLanguageParser.BoolExprContext,0)
-
-
-        def strExpr(self):
-            return self.getTypedRuleContext(IsiLanguageParser.StrExprContext,0)
+        def expr(self):
+            return self.getTypedRuleContext(IsiLanguageParser.ExprContext,0)
 
 
         def getRuleIndex(self):
@@ -810,7 +823,7 @@ class IsiLanguageParser ( Parser ):
         self.enterRule(localctx, 14, self.RULE_cmdAssign)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 99
+            self.state = 91
             self.match(IsiLanguageParser.ID)
             self._identifier = self._input.LT(-1).text
             self.verifyID(self._identifier)
@@ -818,29 +831,13 @@ class IsiLanguageParser ( Parser ):
                 self._unusedVariables.remove(self._identifier)
             if self._identifier not in self._initializedVariables:
                 self._initializedVariables.append(self._identifier)
-            self.state = 101
+            self.state = 93
             self.match(IsiLanguageParser.ASGN)
             self._exprContent = ""
-            self.state = 106
-            self._errHandler.sync(self)
-            la_ = self._interp.adaptivePredict(self._input,7,self._ctx)
-            if la_ == 1:
-                self.state = 103
-                self.algExpr()
-                pass
 
-            elif la_ == 2:
-                self.state = 104
-                self.boolExpr()
-                pass
-
-            elif la_ == 3:
-                self.state = 105
-                self.strExpr()
-                pass
-
-
-            self.state = 108
+            self.state = 95
+            self.expr()
+            self.state = 96
             self.match(IsiLanguageParser.DOT)
             self.verifyType(self._identifier, self._type)
             self._cmd = CommandAssign.CommandAssign(self._identifier, self._exprContent)
@@ -864,8 +861,8 @@ class IsiLanguageParser ( Parser ):
         def LP(self):
             return self.getToken(IsiLanguageParser.LP, 0)
 
-        def boolExpr(self):
-            return self.getTypedRuleContext(IsiLanguageParser.BoolExprContext,0)
+        def expr(self):
+            return self.getTypedRuleContext(IsiLanguageParser.ExprContext,0)
 
 
         def RP(self):
@@ -911,61 +908,64 @@ class IsiLanguageParser ( Parser ):
         self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 111
+            self.state = 99
             self.match(IsiLanguageParser.T__7)
-            self.state = 112
+            self.state = 100
             self.match(IsiLanguageParser.LP)
             self._exprContent = ""
-            self.state = 114
-            self.boolExpr()
+            self.state = 102
+            self.expr()
+
+            if self._type != IsiVariable.IsiVariable.BOOL:
+                raise IsiSemanticException.IsiSemanticException("expressao deve ser do tipo booleano")
             localExprCondition = self._exprContent
-            self.state = 116
+            self.state = 104
             self.match(IsiLanguageParser.RP)
-            self.state = 117
+            self.state = 105
             self.match(IsiLanguageParser.T__8)
-            self.state = 118
+            self.state = 106
             self.match(IsiLanguageParser.LC)
             self._currentThread = []
             self._stack.append(self._currentThread)
-            self.state = 121 
+            self.state = 109 
             self._errHandler.sync(self)
             _la = self._input.LA(1)
             while True:
-                self.state = 120
+                self.state = 108
                 self.cmd()
-                self.state = 123 
+                self.state = 111 
                 self._errHandler.sync(self)
                 _la = self._input.LA(1)
-                if not ((((_la) & ~0x3f) == 0 and ((1 << _la) & 22976) != 0)):
+                if not ((((_la) & ~0x3f) == 0 and ((1 << _la) & 39360) != 0)):
                     break
 
-            self.state = 125
+            self.state = 113
             self.match(IsiLanguageParser.RC)
             localTrueList = self._stack.pop()
             localFalseList = []
-            self.state = 138
+            self.state = 126
             self._errHandler.sync(self)
             _la = self._input.LA(1)
             if _la==10:
-                self.state = 127
+                self.state = 115
                 self.match(IsiLanguageParser.T__9)
-                self.state = 128
+                self.state = 116
                 self.match(IsiLanguageParser.LC)
                 self._currentThread = []
                 self._stack.append(self._currentThread)
-                self.state = 131 
+                self.state = 119 
                 self._errHandler.sync(self)
                 _la = self._input.LA(1)
                 while True:
-                    self.state = 130
+                    self.state = 118
                     self.cmd()
-                    self.state = 133 
+                    self.state = 121 
                     self._errHandler.sync(self)
                     _la = self._input.LA(1)
-                    if not ((((_la) & ~0x3f) == 0 and ((1 << _la) & 22976) != 0)):
+                    if not ((((_la) & ~0x3f) == 0 and ((1 << _la) & 39360) != 0)):
                         break
 
-                self.state = 135
+                self.state = 123
                 self.match(IsiLanguageParser.RC)
                 localFalseList = self._stack.pop()
 
@@ -991,8 +991,8 @@ class IsiLanguageParser ( Parser ):
         def LP(self):
             return self.getToken(IsiLanguageParser.LP, 0)
 
-        def boolExpr(self):
-            return self.getTypedRuleContext(IsiLanguageParser.BoolExprContext,0)
+        def expr(self):
+            return self.getTypedRuleContext(IsiLanguageParser.ExprContext,0)
 
 
         def RP(self):
@@ -1032,33 +1032,36 @@ class IsiLanguageParser ( Parser ):
         self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 142
+            self.state = 130
             self.match(IsiLanguageParser.T__10)
-            self.state = 143
+            self.state = 131
             self.match(IsiLanguageParser.LP)
             self._exprContent=""
-            self.state = 145
-            self.boolExpr()
+            self.state = 133
+            self.expr()
+
+            if self._type != IsiVariable.IsiVariable.BOOL:
+                raise IsiSemanticException.IsiSemanticException("expressao deve ser do tipo booleano")
             localwhileCondition = self._exprContent
-            self.state = 147
+            self.state = 135
             self.match(IsiLanguageParser.RP)
-            self.state = 148
+            self.state = 136
             self.match(IsiLanguageParser.LC)
             self._currentThread = []
             self._stack.append(self._currentThread)
-            self.state = 151 
+            self.state = 139 
             self._errHandler.sync(self)
             _la = self._input.LA(1)
             while True:
-                self.state = 150
+                self.state = 138
                 self.cmd()
-                self.state = 153 
+                self.state = 141 
                 self._errHandler.sync(self)
                 _la = self._input.LA(1)
-                if not ((((_la) & ~0x3f) == 0 and ((1 << _la) & 22976) != 0)):
+                if not ((((_la) & ~0x3f) == 0 and ((1 << _la) & 39360) != 0)):
                     break
 
-            self.state = 155
+            self.state = 143
             self.match(IsiLanguageParser.RC)
             self._whileList = self._stack.pop()
             self._cmd = CommandWhile.CommandWhile(localwhileCondition, self._whileList)
@@ -1088,8 +1091,8 @@ class IsiLanguageParser ( Parser ):
         def LP(self):
             return self.getToken(IsiLanguageParser.LP, 0)
 
-        def boolExpr(self):
-            return self.getTypedRuleContext(IsiLanguageParser.BoolExprContext,0)
+        def expr(self):
+            return self.getTypedRuleContext(IsiLanguageParser.ExprContext,0)
 
 
         def RP(self):
@@ -1126,40 +1129,44 @@ class IsiLanguageParser ( Parser ):
         self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 158
+            self.state = 146
             self.match(IsiLanguageParser.T__11)
-            self.state = 159
+            self.state = 147
             self.match(IsiLanguageParser.LC)
             self._currentThread = []
             self._stack.append(self._currentThread)
-            self.state = 162 
+            self.state = 150 
             self._errHandler.sync(self)
             _la = self._input.LA(1)
             while True:
-                self.state = 161
+                self.state = 149
                 self.cmd()
-                self.state = 164 
+                self.state = 152 
                 self._errHandler.sync(self)
                 _la = self._input.LA(1)
-                if not ((((_la) & ~0x3f) == 0 and ((1 << _la) & 22976) != 0)):
+                if not ((((_la) & ~0x3f) == 0 and ((1 << _la) & 39360) != 0)):
                     break
 
-            self.state = 166
+            self.state = 154
             self.match(IsiLanguageParser.RC)
-            self.state = 167
+            self.state = 155
             self.match(IsiLanguageParser.T__10)
-            self.state = 168
+            self.state = 156
             self.match(IsiLanguageParser.LP)
             self._exprContent=""
-            self.state = 170
-            self.boolExpr()
+            self.state = 158
+            self.expr()
+
+            if self._type != IsiVariable.IsiVariable.BOOL:
+                raise IsiSemanticException.IsiSemanticException("expressao deve retornar um booleano")
             localdoWhileCondition = self._exprContent
-            self.state = 172
+
+            self.state = 160
             self.match(IsiLanguageParser.RP)
             self._doWhileList = self._stack.pop()
             self._cmd = CommandDoWhile.CommandDoWhile(localdoWhileCondition, self._doWhileList)
             self._stack[-1].append(self._cmd)
-            self.state = 174
+            self.state = 162
             self.match(IsiLanguageParser.DOT)
         except RecognitionException as re:
             localctx.exception = re
@@ -1170,62 +1177,65 @@ class IsiLanguageParser ( Parser ):
         return localctx
 
 
-    class AlgExprContext(ParserRuleContext):
+    class ExprContext(ParserRuleContext):
         __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
             self.parser = parser
 
-        def algTerm(self, i:int=None):
+        def term(self, i:int=None):
             if i is None:
-                return self.getTypedRuleContexts(IsiLanguageParser.AlgTermContext)
+                return self.getTypedRuleContexts(IsiLanguageParser.TermContext)
             else:
-                return self.getTypedRuleContext(IsiLanguageParser.AlgTermContext,i)
+                return self.getTypedRuleContext(IsiLanguageParser.TermContext,i)
 
 
-        def AOP(self, i:int=None):
+        def OP(self, i:int=None):
             if i is None:
-                return self.getTokens(IsiLanguageParser.AOP)
+                return self.getTokens(IsiLanguageParser.OP)
             else:
-                return self.getToken(IsiLanguageParser.AOP, i)
+                return self.getToken(IsiLanguageParser.OP, i)
 
         def getRuleIndex(self):
-            return IsiLanguageParser.RULE_algExpr
+            return IsiLanguageParser.RULE_expr
 
         def enterRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "enterAlgExpr" ):
-                listener.enterAlgExpr(self)
+            if hasattr( listener, "enterExpr" ):
+                listener.enterExpr(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "exitAlgExpr" ):
-                listener.exitAlgExpr(self)
+            if hasattr( listener, "exitExpr" ):
+                listener.exitExpr(self)
 
 
 
 
-    def algExpr(self):
+    def expr(self):
 
-        localctx = IsiLanguageParser.AlgExprContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 22, self.RULE_algExpr)
+        localctx = IsiLanguageParser.ExprContext(self, self._ctx, self.state)
+        self.enterRule(localctx, 22, self.RULE_expr)
         self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 176
-            self.algTerm()
-            self.state = 182
+            self.state = 164
+            self.term()
+            self.state = 172
             self._errHandler.sync(self)
             _la = self._input.LA(1)
-            while _la==19:
-                self.state = 177
-                self.match(IsiLanguageParser.AOP)
+            while _la==13:
+                self.state = 165
+                self.match(IsiLanguageParser.OP)
                 self._exprContent += self._input.LT(-1).text
-                self.state = 179
-                self.algTerm()
-                self.state = 184
+                self.stack_op(self._input.LT(-1).text)
+                self.state = 167
+                self.term()
+                self.verify_stack()
+                self.state = 174
                 self._errHandler.sync(self)
                 _la = self._input.LA(1)
 
+            self._type = self._expr_stack.pop()
         except RecognitionException as re:
             localctx.exception = re
             self._errHandler.reportError(self, re)
@@ -1235,227 +1245,7 @@ class IsiLanguageParser ( Parser ):
         return localctx
 
 
-    class BoolExprContext(ParserRuleContext):
-        __slots__ = 'parser'
-
-        def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
-            super().__init__(parent, invokingState)
-            self.parser = parser
-
-        def boolTerm(self, i:int=None):
-            if i is None:
-                return self.getTypedRuleContexts(IsiLanguageParser.BoolTermContext)
-            else:
-                return self.getTypedRuleContext(IsiLanguageParser.BoolTermContext,i)
-
-
-        def BOP(self, i:int=None):
-            if i is None:
-                return self.getTokens(IsiLanguageParser.BOP)
-            else:
-                return self.getToken(IsiLanguageParser.BOP, i)
-
-        def LP(self):
-            return self.getToken(IsiLanguageParser.LP, 0)
-
-        def boolExpr(self):
-            return self.getTypedRuleContext(IsiLanguageParser.BoolExprContext,0)
-
-
-        def RP(self):
-            return self.getToken(IsiLanguageParser.RP, 0)
-
-        def getRuleIndex(self):
-            return IsiLanguageParser.RULE_boolExpr
-
-        def enterRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "enterBoolExpr" ):
-                listener.enterBoolExpr(self)
-
-        def exitRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "exitBoolExpr" ):
-                listener.exitBoolExpr(self)
-
-
-
-
-    def boolExpr(self):
-
-        localctx = IsiLanguageParser.BoolExprContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 24, self.RULE_boolExpr)
-        self._la = 0 # Token type
-        try:
-            self.state = 200
-            self._errHandler.sync(self)
-            la_ = self._interp.adaptivePredict(self._input,15,self._ctx)
-            if la_ == 1:
-                self.enterOuterAlt(localctx, 1)
-                self.state = 185
-                self.boolTerm()
-                self.state = 191
-                self._errHandler.sync(self)
-                _la = self._input.LA(1)
-                while _la==20:
-                    self.state = 186
-                    self.match(IsiLanguageParser.BOP)
-                    self._exprContent += self._input.LT(-1).text
-                    print(self._exprContent)
-                    self.state = 188
-                    self.boolTerm()
-                    self.state = 193
-                    self._errHandler.sync(self)
-                    _la = self._input.LA(1)
-
-                pass
-
-            elif la_ == 2:
-                self.enterOuterAlt(localctx, 2)
-                self.state = 194
-                self.match(IsiLanguageParser.LP)
-                self._exprContent += '('
-                self.state = 196
-                self.boolExpr()
-                self.state = 197
-                self.match(IsiLanguageParser.RP)
-                self._exprContent += ')'
-                pass
-
-
-        except RecognitionException as re:
-            localctx.exception = re
-            self._errHandler.reportError(self, re)
-            self._errHandler.recover(self, re)
-        finally:
-            self.exitRule()
-        return localctx
-
-
-    class StrExprContext(ParserRuleContext):
-        __slots__ = 'parser'
-
-        def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
-            super().__init__(parent, invokingState)
-            self.parser = parser
-
-        def strTerm(self):
-            return self.getTypedRuleContext(IsiLanguageParser.StrTermContext,0)
-
-
-        def getRuleIndex(self):
-            return IsiLanguageParser.RULE_strExpr
-
-        def enterRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "enterStrExpr" ):
-                listener.enterStrExpr(self)
-
-        def exitRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "exitStrExpr" ):
-                listener.exitStrExpr(self)
-
-
-
-
-    def strExpr(self):
-
-        localctx = IsiLanguageParser.StrExprContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 26, self.RULE_strExpr)
-        try:
-            self.enterOuterAlt(localctx, 1)
-            self.state = 202
-            self.strTerm()
-        except RecognitionException as re:
-            localctx.exception = re
-            self._errHandler.reportError(self, re)
-            self._errHandler.recover(self, re)
-        finally:
-            self.exitRule()
-        return localctx
-
-
-    class BoolTermContext(ParserRuleContext):
-        __slots__ = 'parser'
-
-        def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
-            super().__init__(parent, invokingState)
-            self.parser = parser
-
-        def ID(self):
-            return self.getToken(IsiLanguageParser.ID, 0)
-
-        def BOOL(self):
-            return self.getToken(IsiLanguageParser.BOOL, 0)
-
-        def algExpr(self, i:int=None):
-            if i is None:
-                return self.getTypedRuleContexts(IsiLanguageParser.AlgExprContext)
-            else:
-                return self.getTypedRuleContext(IsiLanguageParser.AlgExprContext,i)
-
-
-        def ROP(self):
-            return self.getToken(IsiLanguageParser.ROP, 0)
-
-        def getRuleIndex(self):
-            return IsiLanguageParser.RULE_boolTerm
-
-        def enterRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "enterBoolTerm" ):
-                listener.enterBoolTerm(self)
-
-        def exitRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "exitBoolTerm" ):
-                listener.exitBoolTerm(self)
-
-
-
-
-    def boolTerm(self):
-
-        localctx = IsiLanguageParser.BoolTermContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 28, self.RULE_boolTerm)
-        try:
-            self.enterOuterAlt(localctx, 1)
-            self.state = 213
-            self._errHandler.sync(self)
-            la_ = self._interp.adaptivePredict(self._input,16,self._ctx)
-            if la_ == 1:
-                self.state = 204
-                self.match(IsiLanguageParser.ID)
-                self.verifyID(self._input.LT(-1).text)
-                self._exprContent += self._input.LT(-1).text
-                self.verifyType(self._input.LT(-1).text, IsiVariable.IsiVariable.BOOL)
-
-                pass
-
-            elif la_ == 2:
-                self.state = 206
-                self.match(IsiLanguageParser.BOOL)
-                self._exprContent += self._input.LT(-1).text
-                self._type = IsiVariable.IsiVariable.BOOL
-                pass
-
-            elif la_ == 3:
-                self.state = 208
-                self.algExpr()
-                self.state = 209
-                self.match(IsiLanguageParser.ROP)
-                self._exprContent += self._input.LT(-1).text
-                self.state = 211
-                self.algExpr()
-                pass
-
-
-            self._type = IsiVariable.IsiVariable.BOOL
-        except RecognitionException as re:
-            localctx.exception = re
-            self._errHandler.reportError(self, re)
-            self._errHandler.recover(self, re)
-        finally:
-            self.exitRule()
-        return localctx
-
-
-    class AlgTermContext(ParserRuleContext):
+    class TermContext(ParserRuleContext):
         __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
@@ -1468,127 +1258,93 @@ class IsiLanguageParser ( Parser ):
         def NUM(self):
             return self.getToken(IsiLanguageParser.NUM, 0)
 
+        def BOOL(self):
+            return self.getToken(IsiLanguageParser.BOOL, 0)
+
+        def TEXT(self):
+            return self.getToken(IsiLanguageParser.TEXT, 0)
+
         def LP(self):
             return self.getToken(IsiLanguageParser.LP, 0)
 
-        def algExpr(self):
-            return self.getTypedRuleContext(IsiLanguageParser.AlgExprContext,0)
+        def expr(self):
+            return self.getTypedRuleContext(IsiLanguageParser.ExprContext,0)
 
 
         def RP(self):
             return self.getToken(IsiLanguageParser.RP, 0)
 
         def getRuleIndex(self):
-            return IsiLanguageParser.RULE_algTerm
+            return IsiLanguageParser.RULE_term
 
         def enterRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "enterAlgTerm" ):
-                listener.enterAlgTerm(self)
+            if hasattr( listener, "enterTerm" ):
+                listener.enterTerm(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "exitAlgTerm" ):
-                listener.exitAlgTerm(self)
+            if hasattr( listener, "exitTerm" ):
+                listener.exitTerm(self)
 
 
 
 
-    def algTerm(self):
+    def term(self):
 
-        localctx = IsiLanguageParser.AlgTermContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 30, self.RULE_algTerm)
+        localctx = IsiLanguageParser.TermContext(self, self._ctx, self.state)
+        self.enterRule(localctx, 24, self.RULE_term)
         try:
-            self.enterOuterAlt(localctx, 1)
-            self.state = 227
+            self.state = 195
             self._errHandler.sync(self)
             token = self._input.LA(1)
-            if token in [14]:
-                self.state = 217
-                self.match(IsiLanguageParser.ID)
-                self.verifyID(self._input.LT(-1).text)
+            if token in [14, 15, 16, 17]:
+                self.enterOuterAlt(localctx, 1)
+                self.state = 185
+                self._errHandler.sync(self)
+                token = self._input.LA(1)
+                if token in [15]:
+                    self.state = 177
+                    self.match(IsiLanguageParser.ID)
+
+                    self._symbol = self._symbolTable.get(self._input.LT(-1).text)
+                    self.verifyID(self._input.LT(-1).text)
+                    self._expr_stack.append(self._symbol.getType())
+
+                    pass
+                elif token in [17]:
+                    self.state = 179
+                    self.match(IsiLanguageParser.NUM)
+                    self._expr_stack.append(IsiVariable.IsiVariable.NUMBER)
+                    pass
+                elif token in [14]:
+                    self.state = 181
+                    self.match(IsiLanguageParser.BOOL)
+                    self._expr_stack.append(IsiVariable.IsiVariable.BOOL)
+                    pass
+                elif token in [16]:
+                    self.state = 183
+                    self.match(IsiLanguageParser.TEXT)
+                    self._expr_stack.append(IsiVariable.IsiVariable.TEXT)
+                    pass
+                else:
+                    raise NoViableAltException(self)
+
                 self._exprContent += self._input.LT(-1).text
-                self.verifyType(self._input.LT(-1).text, IsiVariable.IsiVariable.NUMBER)
                 pass
-            elif token in [16]:
-                self.state = 219
-                self.match(IsiLanguageParser.NUM)
-                self._type = IsiVariable.IsiVariable.NUMBER
-                self._exprContent += self._input.LT(-1).text
-                pass
-            elif token in [23]:
-                self.state = 221
+            elif token in [25]:
+                self.enterOuterAlt(localctx, 2)
+                self.state = 188
                 self.match(IsiLanguageParser.LP)
                 self._exprContent += '('
-                self.state = 223
-                self.algExpr()
-                self.state = 224
+                self.state = 190
+                self.expr()
+                self.state = 191
                 self.match(IsiLanguageParser.RP)
                 self._exprContent += ')'
+                self._expr_stack.append(self._type)
                 pass
             else:
                 raise NoViableAltException(self)
 
-            self._type = IsiVariable.IsiVariable.NUMBER
-        except RecognitionException as re:
-            localctx.exception = re
-            self._errHandler.reportError(self, re)
-            self._errHandler.recover(self, re)
-        finally:
-            self.exitRule()
-        return localctx
-
-
-    class StrTermContext(ParserRuleContext):
-        __slots__ = 'parser'
-
-        def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
-            super().__init__(parent, invokingState)
-            self.parser = parser
-
-        def ID(self):
-            return self.getToken(IsiLanguageParser.ID, 0)
-
-        def TEXT(self):
-            return self.getToken(IsiLanguageParser.TEXT, 0)
-
-        def getRuleIndex(self):
-            return IsiLanguageParser.RULE_strTerm
-
-        def enterRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "enterStrTerm" ):
-                listener.enterStrTerm(self)
-
-        def exitRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "exitStrTerm" ):
-                listener.exitStrTerm(self)
-
-
-
-
-    def strTerm(self):
-
-        localctx = IsiLanguageParser.StrTermContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 32, self.RULE_strTerm)
-        try:
-            self.enterOuterAlt(localctx, 1)
-            self.state = 235
-            self._errHandler.sync(self)
-            token = self._input.LA(1)
-            if token in [14]:
-                self.state = 231
-                self.match(IsiLanguageParser.ID)
-                self.verifyID(self._input.LT(-1).text)
-                self._exprContent += self._input.LT(-1).text
-                self.verifyType(self._input.LT(-1).text, IsiVariable.IsiVariable.TEXT)
-                pass
-            elif token in [15]:
-                self.state = 233
-                self.match(IsiLanguageParser.TEXT)
-                self._exprContent += self._input.LT(-1).text
-                pass
-            else:
-                raise NoViableAltException(self)
-
-            self._type = IsiVariable.IsiVariable.TEXT
         except RecognitionException as re:
             localctx.exception = re
             self._errHandler.reportError(self, re)

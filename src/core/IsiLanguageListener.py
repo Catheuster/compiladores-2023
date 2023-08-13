@@ -121,57 +121,21 @@ class IsiLanguageListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by IsiLanguageParser#algExpr.
-    def enterAlgExpr(self, ctx:IsiLanguageParser.AlgExprContext):
+    # Enter a parse tree produced by IsiLanguageParser#expr.
+    def enterExpr(self, ctx:IsiLanguageParser.ExprContext):
         pass
 
-    # Exit a parse tree produced by IsiLanguageParser#algExpr.
-    def exitAlgExpr(self, ctx:IsiLanguageParser.AlgExprContext):
-        pass
-
-
-    # Enter a parse tree produced by IsiLanguageParser#boolExpr.
-    def enterBoolExpr(self, ctx:IsiLanguageParser.BoolExprContext):
-        pass
-
-    # Exit a parse tree produced by IsiLanguageParser#boolExpr.
-    def exitBoolExpr(self, ctx:IsiLanguageParser.BoolExprContext):
+    # Exit a parse tree produced by IsiLanguageParser#expr.
+    def exitExpr(self, ctx:IsiLanguageParser.ExprContext):
         pass
 
 
-    # Enter a parse tree produced by IsiLanguageParser#strExpr.
-    def enterStrExpr(self, ctx:IsiLanguageParser.StrExprContext):
+    # Enter a parse tree produced by IsiLanguageParser#term.
+    def enterTerm(self, ctx:IsiLanguageParser.TermContext):
         pass
 
-    # Exit a parse tree produced by IsiLanguageParser#strExpr.
-    def exitStrExpr(self, ctx:IsiLanguageParser.StrExprContext):
-        pass
-
-
-    # Enter a parse tree produced by IsiLanguageParser#boolTerm.
-    def enterBoolTerm(self, ctx:IsiLanguageParser.BoolTermContext):
-        pass
-
-    # Exit a parse tree produced by IsiLanguageParser#boolTerm.
-    def exitBoolTerm(self, ctx:IsiLanguageParser.BoolTermContext):
-        pass
-
-
-    # Enter a parse tree produced by IsiLanguageParser#algTerm.
-    def enterAlgTerm(self, ctx:IsiLanguageParser.AlgTermContext):
-        pass
-
-    # Exit a parse tree produced by IsiLanguageParser#algTerm.
-    def exitAlgTerm(self, ctx:IsiLanguageParser.AlgTermContext):
-        pass
-
-
-    # Enter a parse tree produced by IsiLanguageParser#strTerm.
-    def enterStrTerm(self, ctx:IsiLanguageParser.StrTermContext):
-        pass
-
-    # Exit a parse tree produced by IsiLanguageParser#strTerm.
-    def exitStrTerm(self, ctx:IsiLanguageParser.StrTermContext):
+    # Exit a parse tree produced by IsiLanguageParser#term.
+    def exitTerm(self, ctx:IsiLanguageParser.TermContext):
         pass
 
 

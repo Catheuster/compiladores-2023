@@ -32,6 +32,8 @@ from ..exceptions import IsiSemanticException
     self._exprCondition = None
     self._trueList = []
     self._falseList = []
+    self._expr_stack = []
+    self._typetable = ['numero','texto','booleano']
 
 def verifyID(self, identifier):
     if not self._symbolTable.exists(identifier):
@@ -40,7 +42,7 @@ def verifyID(self, identifier):
 def verifyType(self, identifier, type):
     self._symbol = self._symbolTable.get(identifier)
     if self._symbol.getType() != type:
-        raise IsiSemanticException.IsiSemanticException("Símbolo '" + identifier + "' tem um tipo incompatível!\n")
+        raise IsiSemanticException.IsiSemanticException("Símbolo '" + identifier + "' e incompativel com o tipo " + self._typetable[type] + "\n")
 
 def exibeComandos(self):
     for command in self._program.getCommands():
@@ -48,6 +50,43 @@ def exibeComandos(self):
 
 def generateCode(self, choice=1):
     self._program.generateTarget(choice)
+
+def stack_op(self,op):
+    if op in ['<', '>', '<=', '>=', '!=', '==']:
+        self._expr_stack.append("ROP")
+    elif op in ['+', '-', '*', '/']:
+        self._expr_stack.append("AOP")
+    elif op in ['&&', '||']:
+        self._expr_stack.append("BOP")
+    elif op in ['++']:
+        self._expr_stack.append("SOP")
+
+def verify_stack(self):
+    print('inicio')
+    print(self._expr_stack)
+    right_param = self._expr_stack.pop()
+    op = self._expr_stack.pop()
+    left_param = self._expr_stack.pop()
+
+    match op:
+        case 'AOP':
+            if (right_param != IsiVariable.IsiVariable.NUMBER) or (left_param != IsiVariable.IsiVariable.NUMBER):
+                raise IsiSemanticException.IsiSemanticException('Opercao invalida')
+            self._expr_stack.append(IsiVariable.IsiVariable.NUMBER)
+        case 'ROP':
+            if (right_param != 0) or (left_param != 0):
+                raise IsiSemanticException.IsiSemanticException('Opercao invalida')
+            self._expr_stack.append(IsiVariable.IsiVariable.BOOL)
+        case 'BOP':
+            if (right_param != IsiVariable.IsiVariable.BOOL) or (left_param != IsiVariable.IsiVariable.BOOL):
+                raise IsiSemanticException.IsiSemanticException('Opercao invalida')
+            self._expr_stack.append(IsiVariable.IsiVariable.BOOL)
+        case 'SOP':
+            if (right_param != IsiVariable.IsiVariable.TEXT) or (left_param != IsiVariable.IsiVariable.TEXT):
+                raise IsiSemanticException.IsiSemanticException('Opercao invalida')
+            self._expr_stack.append(IsiVariable.IsiVariable.TEXT)
+    print('fim')
+    print(self._expr_stack)
 }
 
 prog: 'programa' (declaration | block)+ 'fimprog.'
@@ -155,7 +194,7 @@ if self._identifier not in self._initializedVariables:
 
 {self._exprContent = ""}
 
-                   (algExpr|boolExpr|strExpr) DOT
+                   (expr) DOT
 
 {self.verifyType(self._identifier, self._type)
 self._cmd = CommandAssign.CommandAssign(self._identifier, self._exprContent)
@@ -165,8 +204,11 @@ self._stack[-1].append(self._cmd)}
 
 cmdIf: 'se' LP 
 {self._exprContent = ""}
-                boolExpr
-{localExprCondition = self._exprContent}
+                expr
+{
+if self._type != IsiVariable.IsiVariable.BOOL:
+    raise IsiSemanticException.IsiSemanticException("expressao deve ser do tipo booleano")
+localExprCondition = self._exprContent}
 
                               RP 'entao' LC
 
@@ -195,8 +237,11 @@ self._stack[-1].append(self._cmd)}
 
 cmdWhile: 'enquanto' LP 
 {self._exprContent=""}
-                              boolExpr
-{localwhileCondition = self._exprContent} 
+                              expr
+{
+if self._type != IsiVariable.IsiVariable.BOOL:
+    raise IsiSemanticException.IsiSemanticException("expressao deve ser do tipo booleano")
+localwhileCondition = self._exprContent} 
                                 RP LC
 
 {self._currentThread = []
@@ -217,8 +262,12 @@ self._stack.append(self._currentThread)}
 
                       (cmd)+ RC 'enquanto' LP 
 {self._exprContent=""}
-                            boolExpr
-{localdoWhileCondition = self._exprContent}
+                            expr
+{
+if self._type != IsiVariable.IsiVariable.BOOL:
+    raise IsiSemanticException.IsiSemanticException("expressao deve retornar um booleano")
+localdoWhileCondition = self._exprContent
+}
 
                                                 RP
 
@@ -228,77 +277,34 @@ self._stack[-1].append(self._cmd)}
 
                                                                         DOT ;
 
-algExpr:	algTerm (AOP
-
-{self._exprContent += self._input.LT(-1).text}
-
-                   algTerm)* ;
-
-boolExpr:   boolTerm (BOP
-
+expr: term (OP 
 {self._exprContent += self._input.LT(-1).text
-print(self._exprContent)}
+self.stack_op(self._input.LT(-1).text)}
+        term
+{self.verify_stack()})*
+{self._type = self._expr_stack.pop()};
 
-                    boolTerm)*
-                    | LP
-
-{self._exprContent += '('}
-
-                        boolExpr RP
-
-{self._exprContent += ')'};
-
-strExpr: strTerm;
-
-boolTerm: (ID 
-
-{self.verifyID(self._input.LT(-1).text)
-self._exprContent += self._input.LT(-1).text
-self.verifyType(self._input.LT(-1).text, IsiVariable.IsiVariable.BOOL)
+term: 
+    (
+    ID      
+{
+self._symbol = self._symbolTable.get(self._input.LT(-1).text)
+self.verifyID(self._input.LT(-1).text)
+self._expr_stack.append(self._symbol.getType())
 }
-            | BOOL 
-
-{self._exprContent += self._input.LT(-1).text
-self._type = IsiVariable.IsiVariable.BOOL}
-
-                | algExpr 
-
-                    ROP 
-
-{self._exprContent += self._input.LT(-1).text}
-
-                        algExpr)
-
-{self._type = IsiVariable.IsiVariable.BOOL};
-
-algTerm: (ID
-
-{self.verifyID(self._input.LT(-1).text)
-self._exprContent += self._input.LT(-1).text
-self.verifyType(self._input.LT(-1).text, IsiVariable.IsiVariable.NUMBER)}
-
-          | NUM
-
-{self._type = IsiVariable.IsiVariable.NUMBER
-self._exprContent += self._input.LT(-1).text}
-            | LP
+    |NUM    {self._expr_stack.append(IsiVariable.IsiVariable.NUMBER)}
+    |BOOL   {self._expr_stack.append(IsiVariable.IsiVariable.BOOL)}
+    |TEXT   {self._expr_stack.append(IsiVariable.IsiVariable.TEXT)}
+){self._exprContent += self._input.LT(-1).text}
+    |LP
 
 {self._exprContent += '('}
 
-                algExpr RP
+        expr RP
 
-{self._exprContent += ')'})
+{self._exprContent += ')'} {self._expr_stack.append(self._type)};
 
-{self._type = IsiVariable.IsiVariable.NUMBER};
-
-strTerm: (ID
-{self.verifyID(self._input.LT(-1).text)
-self._exprContent += self._input.LT(-1).text
-self.verifyType(self._input.LT(-1).text, IsiVariable.IsiVariable.TEXT)}
-            | TEXT
-            {self._exprContent += self._input.LT(-1).text})
-
-{self._type = IsiVariable.IsiVariable.TEXT};
+OP: AOP | BOP | ROP | SOP;
 
 BOOL: 'verdadeiro' | 'falso' ;
 
@@ -310,11 +316,13 @@ NUM: [0-9]+ ('.' [0-9])? ;
 
 ASGN: ':=' ;
 
-ROP: '<' | '>' | '<=' | '>=' | '!=' | '==' ;
+ROP: '<' | '>' | '<=' | '>=' | '!=' | '==';
 
 AOP: '+' | '-' | '*' | '/' ;
 
-BOP : '&&'| '||';
+BOP : '&&'| '||' ;
+
+SOP : '++';
 
 DOT: '.' ;
 
