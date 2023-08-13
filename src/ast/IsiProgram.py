@@ -1,6 +1,5 @@
 from ..datastructures import IsiSymbolTable
-from ..ast import AbstractCommand
-import os
+
 
 class IsiProgram:
     def __init__(self):

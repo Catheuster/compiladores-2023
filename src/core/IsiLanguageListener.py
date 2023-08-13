@@ -5,7 +5,6 @@ if "." in __name__:
 else:
     from IsiLanguageParser import IsiLanguageParser
 
-from ..ast import AbstractCommand
 from ..ast import CommandRead
 from ..ast import CommandWrite
 from ..ast import CommandAssign
@@ -16,7 +15,7 @@ from ..ast import IsiProgram
 from ..datastructures import IsiSymbol
 from ..datastructures import IsiSymbolTable
 from ..datastructures import IsiVariable
-from ..exceptions import IsiSemanticException
+from ..exceptions import IsiException
 
 
 # This class defines a complete listener for a parse tree produced by IsiLanguageParser.

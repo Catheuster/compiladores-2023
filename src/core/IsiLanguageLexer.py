@@ -8,7 +8,6 @@ else:
     from typing.io import TextIO
 
 
-from ..ast import AbstractCommand
 from ..ast import CommandRead
 from ..ast import CommandWrite
 from ..ast import CommandAssign
@@ -19,7 +18,7 @@ from ..ast import IsiProgram
 from ..datastructures import IsiSymbol
 from ..datastructures import IsiSymbolTable
 from ..datastructures import IsiVariable
-from ..exceptions import IsiSemanticException
+from ..exceptions import IsiException
 
 
 def serializedATN():
@@ -176,7 +175,7 @@ class IsiLanguageLexer(Lexer):
         self._type = None
         self._identifier = None
         self._value = None
-        self._symbolTable = IsiSymbolTable.IsiSymbolTable()
+        self._symbol_table = IsiSymbolTable.IsiSymbolTable()
         self._symbol = IsiSymbol.IsiSymbol
         self._program = IsiProgram.IsiProgram()
         self._readID = None
@@ -184,22 +183,19 @@ class IsiLanguageLexer(Lexer):
         self._exprID = None
         self._exprContent = None
         self._stack = []
-        self._unusedVariables = []
-        self._initializedVariables = []
-        self._exprCondition = None
-        self._trueList = []
-        self._falseList = []
+        self._unused_variables = []
+        self._initialized_variables = []
         self._expr_stack = []
-        self._typetable = ['numero','texto','booleano']
+        self._type_table = ['numero','texto','booleano']
 
     def verifyID(self, identifier):
-        if not self._symbolTable.exists(identifier):
-            raise IsiSemanticException.IsiSemanticException("Símbolo '" + identifier + "' não declarado.\n")
+        if not self._symbol_table.exists(identifier):
+            raise IsiException.IsiSemanticException("Símbolo '" + identifier + "' não declarado.\n")
 
     def verifyType(self, identifier, type):
-        self._symbol = self._symbolTable.get(identifier)
+        self._symbol = self._symbol_table.get(identifier)
         if self._symbol.getType() != type:
-            raise IsiSemanticException.IsiSemanticException("Símbolo '" + identifier + "' e incompativel com o tipo " + self._typetable[type] + "\n")
+            raise IsiException.IsiSemanticException("Símbolo '" + identifier + "' e incompativel com o tipo " + self._type_table[type] + "\n")
 
     def exibeComandos(self):
         for command in self._program.getCommands():
@@ -219,8 +215,6 @@ class IsiLanguageLexer(Lexer):
             self._expr_stack.append("SOP")
 
     def verify_stack(self):
-        print('inicio')
-        print(self._expr_stack)
         right_param = self._expr_stack.pop()
         op = self._expr_stack.pop()
         left_param = self._expr_stack.pop()
@@ -228,21 +222,21 @@ class IsiLanguageLexer(Lexer):
         match op:
             case 'AOP':
                 if (right_param != IsiVariable.IsiVariable.NUMBER) or (left_param != IsiVariable.IsiVariable.NUMBER):
-                    raise IsiSemanticException.IsiSemanticException('Opercao invalida')
+                    raise IsiException.IsiSemanticException('Opercao invalida')
                 self._expr_stack.append(IsiVariable.IsiVariable.NUMBER)
             case 'ROP':
                 if (right_param != 0) or (left_param != 0):
-                    raise IsiSemanticException.IsiSemanticException('Opercao invalida')
+                    raise IsiException.IsiSemanticException('Opercao invalida')
                 self._expr_stack.append(IsiVariable.IsiVariable.BOOL)
             case 'BOP':
                 if (right_param != IsiVariable.IsiVariable.BOOL) or (left_param != IsiVariable.IsiVariable.BOOL):
-                    raise IsiSemanticException.IsiSemanticException('Opercao invalida')
+                    raise IsiException.IsiSemanticException('Opercao invalida')
                 self._expr_stack.append(IsiVariable.IsiVariable.BOOL)
             case 'SOP':
                 if (right_param != IsiVariable.IsiVariable.TEXT) or (left_param != IsiVariable.IsiVariable.TEXT):
-                    raise IsiSemanticException.IsiSemanticException('Opercao invalida')
+                    raise IsiException.IsiSemanticException('Opercao invalida')
                 self._expr_stack.append(IsiVariable.IsiVariable.TEXT)
-        print('fim')
-        print(self._expr_stack)
+            case _:
+                raise IsiException.IsiSemanticException('Erro inesperado')
 
 

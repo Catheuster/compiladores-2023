@@ -1,5 +1,4 @@
 from .AbstractCommand import AbstractCommand
-from ..datastructures import IsiVariable
 
 
 class CommandWhile(AbstractCommand):

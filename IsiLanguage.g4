@@ -1,7 +1,6 @@
 grammar IsiLanguage;
 
 @header{
-from ..ast import AbstractCommand
 from ..ast import CommandRead
 from ..ast import CommandWrite
 from ..ast import CommandAssign
@@ -12,14 +11,14 @@ from ..ast import IsiProgram
 from ..datastructures import IsiSymbol
 from ..datastructures import IsiSymbolTable
 from ..datastructures import IsiVariable
-from ..exceptions import IsiSemanticException
+from ..exceptions import IsiException
 }
 
 @members{
     self._type = None
     self._identifier = None
     self._value = None
-    self._symbolTable = IsiSymbolTable.IsiSymbolTable()
+    self._symbol_table = IsiSymbolTable.IsiSymbolTable()
     self._symbol = IsiSymbol.IsiSymbol
     self._program = IsiProgram.IsiProgram()
     self._readID = None
@@ -27,22 +26,19 @@ from ..exceptions import IsiSemanticException
     self._exprID = None
     self._exprContent = None
     self._stack = []
-    self._unusedVariables = []
-    self._initializedVariables = []
-    self._exprCondition = None
-    self._trueList = []
-    self._falseList = []
+    self._unused_variables = []
+    self._initialized_variables = []
     self._expr_stack = []
-    self._typetable = ['numero','texto','booleano']
+    self._type_table = ['numero','texto','booleano']
 
 def verifyID(self, identifier):
-    if not self._symbolTable.exists(identifier):
-        raise IsiSemanticException.IsiSemanticException("Símbolo '" + identifier + "' não declarado.\n")
+    if not self._symbol_table.exists(identifier):
+        raise IsiException.IsiSemanticException("Símbolo '" + identifier + "' não declarado.\n")
 
 def verifyType(self, identifier, type):
-    self._symbol = self._symbolTable.get(identifier)
+    self._symbol = self._symbol_table.get(identifier)
     if self._symbol.getType() != type:
-        raise IsiSemanticException.IsiSemanticException("Símbolo '" + identifier + "' e incompativel com o tipo " + self._typetable[type] + "\n")
+        raise IsiException.IsiSemanticException("Símbolo '" + identifier + "' e incompativel com o tipo " + self._type_table[type] + "\n")
 
 def exibeComandos(self):
     for command in self._program.getCommands():
@@ -62,8 +58,6 @@ def stack_op(self,op):
         self._expr_stack.append("SOP")
 
 def verify_stack(self):
-    print('inicio')
-    print(self._expr_stack)
     right_param = self._expr_stack.pop()
     op = self._expr_stack.pop()
     left_param = self._expr_stack.pop()
@@ -71,30 +65,30 @@ def verify_stack(self):
     match op:
         case 'AOP':
             if (right_param != IsiVariable.IsiVariable.NUMBER) or (left_param != IsiVariable.IsiVariable.NUMBER):
-                raise IsiSemanticException.IsiSemanticException('Opercao invalida')
+                raise IsiException.IsiSemanticException('Opercao invalida')
             self._expr_stack.append(IsiVariable.IsiVariable.NUMBER)
         case 'ROP':
             if (right_param != 0) or (left_param != 0):
-                raise IsiSemanticException.IsiSemanticException('Opercao invalida')
+                raise IsiException.IsiSemanticException('Opercao invalida')
             self._expr_stack.append(IsiVariable.IsiVariable.BOOL)
         case 'BOP':
             if (right_param != IsiVariable.IsiVariable.BOOL) or (left_param != IsiVariable.IsiVariable.BOOL):
-                raise IsiSemanticException.IsiSemanticException('Opercao invalida')
+                raise IsiException.IsiSemanticException('Opercao invalida')
             self._expr_stack.append(IsiVariable.IsiVariable.BOOL)
         case 'SOP':
             if (right_param != IsiVariable.IsiVariable.TEXT) or (left_param != IsiVariable.IsiVariable.TEXT):
-                raise IsiSemanticException.IsiSemanticException('Opercao invalida')
+                raise IsiException.IsiSemanticException('Opercao invalida')
             self._expr_stack.append(IsiVariable.IsiVariable.TEXT)
-    print('fim')
-    print(self._expr_stack)
+        case _:
+            raise IsiException.IsiSemanticException('Erro inesperado')
 }
 
 prog: 'programa' (declaration | block)+ 'fimprog.'
 
-{self._program.setVariableTable(self._symbolTable)
+{self._program.setVariableTable(self._symbol_table)
 self._program.setCommands(self._stack.pop())
-if self._unusedVariables:
-    print(f"Warning: Variáveis declaradas, mas não usadas. {self._unusedVariables}\n")}
+if self._unused_variables:
+    print(f"Warning: Variáveis declaradas, mas não usadas. {self._unused_variables}\n")}
                                                    ;
 
 declaration: tipo ID
@@ -102,24 +96,24 @@ declaration: tipo ID
 {self._identifier = self._input.LT(-1).text;
 self._value = None
 self._symbol = IsiVariable.IsiVariable(self._identifier, self._type, self._value)
-if not self._symbolTable.exists(self._identifier):
-    self._symbolTable.add(self._symbol)
-    self._unusedVariables.append(self._identifier)
+if not self._symbol_table.exists(self._identifier):
+    self._symbol_table.add(self._symbol)
+    self._unused_variables.append(self._identifier)
     print(f"Símbolo adicionado: {self._symbol}")
 else:
-    raise IsiSemanticException.IsiSemanticException("Símbolo '" + self._identifier + "' já declarado.\n")}
+    raise IsiException.IsiSemanticException("Símbolo '" + self._identifier + "' já declarado.\n")}
 
                               (COMMA ID
 
 {self._identifier = self._input.LT(-1).text;
 self._value = None
 self._symbol = IsiVariable.IsiVariable(self._identifier, self._type, self._value)
-if not self._symbolTable.exists(self._identifier):
-    self._symbolTable.add(self._symbol)
-    self._unusedVariables.append(self._identifier)
+if not self._symbol_table.exists(self._identifier):
+    self._symbol_table.add(self._symbol)
+    self._unused_variables.append(self._identifier)
     print(f"Símbolo adicionado: {self._symbol}")
 else:
-    raise IsiSemanticException.IsiSemanticException("Símbolo '" + self._identifier + "' já declarado.\n")}
+    raise IsiException.IsiSemanticException("Símbolo '" + self._identifier + "' já declarado.\n")}
 
                                         )* DOT ;
 
@@ -150,14 +144,14 @@ cmdRead: 'leia' LP ID
 
 {self.verifyID(self._input.LT(-1).text)
 self._readID = self._input.LT(-1).text
-if self._readID in self._unusedVariables:
-    self._unusedVariables.remove(self._readID)
-if self._readID not in self._initializedVariables:
-    self._initializedVariables.append(self._readID)}
+if self._readID in self._unused_variables:
+    self._unused_variables.remove(self._readID)
+if self._readID not in self._initialized_variables:
+    self._initialized_variables.append(self._readID)}
 
                       RP DOT
 
-{self._value = self._symbolTable.get(self._readID)
+{self._value = self._symbol_table.get(self._readID)
 self._cmd = CommandRead.CommandRead(self._readID, self._value)
 self._stack[-1].append(self._cmd)}
 
@@ -171,8 +165,8 @@ cmdWrite: 'escreva' LP (TEXT
 
 {self.verifyID(self._input.LT(-1).text)
 self._writeInput = self._input.LT(-1).text
-if self._writeInput not in self._initializedVariables:
-    raise IsiSemanticException.IsiSemanticException("Símbolo '" + self._writeInput + "' não inicializado.\n")}
+if self._writeInput not in self._initialized_variables:
+    raise IsiException.IsiSemanticException("Símbolo '" + self._writeInput + "' não inicializado.\n")}
 
                                   ) RP DOT
 
@@ -185,10 +179,10 @@ cmdAssign: ID
 
 {self._identifier = self._input.LT(-1).text
 self.verifyID(self._identifier)
-if self._identifier in self._unusedVariables:
-    self._unusedVariables.remove(self._identifier)
-if self._identifier not in self._initializedVariables:
-    self._initializedVariables.append(self._identifier)}
+if self._identifier in self._unused_variables:
+    self._unused_variables.remove(self._identifier)
+if self._identifier not in self._initialized_variables:
+    self._initialized_variables.append(self._identifier)}
 
               ASGN
 
@@ -207,7 +201,7 @@ cmdIf: 'se' LP
                 expr
 {
 if self._type != IsiVariable.IsiVariable.BOOL:
-    raise IsiSemanticException.IsiSemanticException("expressao deve ser do tipo booleano")
+    raise IsiException.IsiSemanticException("expressao deve ser do tipo booleano")
 localExprCondition = self._exprContent}
 
                               RP 'entao' LC
@@ -240,7 +234,7 @@ cmdWhile: 'enquanto' LP
                               expr
 {
 if self._type != IsiVariable.IsiVariable.BOOL:
-    raise IsiSemanticException.IsiSemanticException("expressao deve ser do tipo booleano")
+    raise IsiException.IsiSemanticException("expressao deve ser do tipo booleano")
 localwhileCondition = self._exprContent} 
                                 RP LC
 
@@ -265,7 +259,7 @@ self._stack.append(self._currentThread)}
                             expr
 {
 if self._type != IsiVariable.IsiVariable.BOOL:
-    raise IsiSemanticException.IsiSemanticException("expressao deve retornar um booleano")
+    raise IsiException.IsiSemanticException("expressao deve retornar um booleano")
 localdoWhileCondition = self._exprContent
 }
 
@@ -288,7 +282,7 @@ term:
     (
     ID      
 {
-self._symbol = self._symbolTable.get(self._input.LT(-1).text)
+self._symbol = self._symbol_table.get(self._input.LT(-1).text)
 self.verifyID(self._input.LT(-1).text)
 self._expr_stack.append(self._symbol.getType())
 }
