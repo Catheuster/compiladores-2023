@@ -202,7 +202,7 @@ class IsiLanguageParser ( Parser ):
             print(command)
 
     def generateCode(self, choice=1):
-        self._program.generateTarget(choice)
+        return self._program.generateTarget(choice)
 
     def stack_op(self,op):
         if op in ['<', '>', '<=', '>=', '!=', '==']:

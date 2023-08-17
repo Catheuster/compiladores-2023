@@ -29,9 +29,24 @@ if __name__ == '__main__':
 
         parser.exibeComandos()
 
-        parser.generateCode(1)
-        parser.generateCode(2)
-        parser.generateCode(3)
+        try:
+            with open("MainClass.java", "w") as file:
+                file.write(parser.generateCode(1))
+        except Exception as ex:
+            print("Error:", ex)
+        
+        try:
+            with open("MainScript.py", "w") as file:
+                file.write(parser.generateCode(2))
+        except Exception as ex:
+            print("Error:", ex)
+        
+        try:
+            with open("MainScript.js", "w") as file:
+                file.write(parser.generateCode(3))
+        except Exception as ex:
+            print("Error:", ex)
+        
 
     except IsiSemanticException as e:
         print("Erro semântico:", e)

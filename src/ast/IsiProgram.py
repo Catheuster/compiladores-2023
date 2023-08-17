@@ -28,11 +28,7 @@ class IsiProgram:
         str = str.replace("verdadeiro", "true").replace("falso", "false")
         str = str.replace("++", '+')
 
-        try:
-            with open("MainClass.java", "w") as file:
-                file.write(str)
-        except Exception as ex:
-            print("Error:", ex)
+        return str
 
     def generatePythonTarget(self):
         str=""
@@ -44,11 +40,8 @@ class IsiProgram:
         str = str.replace("verdadeiro", "True").replace("falso", "False")
         str = str.replace("&&", " and ").replace("||"," or ")
         str = str.replace("++", '+')
-        try:
-            with open("MainScript.py", "w") as file:
-                file.write(str)
-        except Exception as ex:
-            print("Error:", ex)
+
+        return str
 
     def generateJavaScriptTarget(self):
         str=""
@@ -59,19 +52,17 @@ class IsiProgram:
             str += command.generateJavaScriptCode() + "\n"
         str = str.replace("verdadeiro", "true").replace("falso", "false")
         str = str.replace("++", '+')
-        try:
-            with open("MainScript.js", "w") as file:
-                file.write(str)
-        except Exception as ex:
-            print("Error:", ex)
+
+        return str
 
     def generateTarget(self, choice):
         if choice == 1:
-            self.generateJavaTarget()
+            return self.generateJavaTarget()
         elif choice == 2:
-            self.generatePythonTarget()
+            return self.generatePythonTarget()
         else:
-            self.generateJavaScriptTarget()
+            return self.generateJavaScriptTarget()
+
     def getVariableTable(self):
         return self.variableTable
 
