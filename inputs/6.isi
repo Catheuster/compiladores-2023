@@ -1,0 +1,18 @@
+programa
+
+numero a.
+
+texto b.
+
+booleano c.
+
+leia(a).
+leia(b).
+leia(c).
+
+escreva(a).
+escreva(b).
+escreva(c).
+escreva("teste").
+
+fimprog.

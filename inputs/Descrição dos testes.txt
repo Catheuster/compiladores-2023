@@ -1,0 +1,12 @@
+1 - Possui 3 tipos de variáveis
+2 - Incompatibilidade de tipos (mostra ERRO)
+3 - Possui a estrutura if.. else + Exemplos de condicionais
+4 - Operações Aritméticas executadas corretamente
+5 - Atribuições realizadas corretamente (caso extra, já abordado em 1 e 2)
+6 - Possui operações de Entrada e Saída
+7 - Aceita números decimais
+8 - Verificar se a variável já foi previamente declarada (ERRO)
+9 - Verificar se a variável foi declarada e não foi usada (ERRO)
+10 - Verificar se uma variável está sendo usada sem ter valor inicial (ERRO)
+11 - Encadeamento de comandos
+12 - Expressões aritméticas

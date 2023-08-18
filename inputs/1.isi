@@ -1,0 +1,17 @@
+programa
+
+texto a.
+
+numero b, c.
+
+booleano d.
+
+a := "oi".
+
+b := 1.
+
+c := 2.5.
+
+d := verdadeiro.
+
+fimprog.

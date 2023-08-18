@@ -1,0 +1,26 @@
+programa
+
+numero a, b.
+booleano c.
+
+a := 2.
+b := 1.
+c := verdadeiro.
+
+se (1 > 2) entao {
+    escreva("1 menor que 2").
+}
+
+se (a > b) entao {
+    escreva("a maior que b").
+} senao {
+    escreva("b menor que a").
+}
+
+se (c) entao {
+    escreva ("c verdadeiro").
+} senao {
+    escreva ("c falso").
+}
+
+fimprog.

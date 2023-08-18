@@ -1,0 +1,13 @@
+programa
+
+numero a, b, c.
+
+a := (2+2)*3.
+b := 20/(10-5).
+c := a*(4+b).
+
+escreva(a).
+escreva(b).
+escreva(c).
+
+fimprog.
