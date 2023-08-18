@@ -1,43 +1,23 @@
 a=None
 b=None
 c=None
-x=None
-t1=None
-d=None
 
-a = float(input())
+a = 2
 
-d = True
+b = 1
 
-b = 3
+c = True
 
-a = 6.5
-
-a = (6+(1+4)*5+8)*2
-
-t1 = "txt123"
-
-print(b)
+if 1>2:
+	print("1 menor que 2")
 
 if a>b:
-	c = float(input())
+	print("a maior que b")
 else:
-	c = float(input())
-	print("atirei o pau no gatoto")
-	if b<a:
-		print("teste")
+	print("b menor que a")
 
-while a>b:
-	print(a)
-	a = 3
-	b = 4
-
-while True:
-	print(a)
-	a = 6
-	b = 4
-	if a<b:
-		continue
-	else:
-		break
+if c:
+	print("c True")
+else:
+	print("c False")
 

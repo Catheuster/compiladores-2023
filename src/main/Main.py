@@ -16,7 +16,7 @@ if __name__ == '__main__':
     try:
         error_listener = IsiErrorListener()
 
-        lexer = IsiLanguageLexer(FileStream("input.isi"))
+        lexer = IsiLanguageLexer(FileStream("../../inputs/1.isi"))
 
         token_stream = CommonTokenStream(lexer)
 
