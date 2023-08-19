@@ -1,9 +1,51 @@
 programa
 
-numero a, b.
+numero a, b, c.
+texto w, u, v.
+booleano t, f, g.
 
-a := 1.
+a := 1.75.
+b := 3.
+w := "hello, ".
+u := "professor Isidro.".
+t := verdadeiro.
+f := falso.
 
-b := a + 1.
+c := a+b.
+escreva(c).
+c := a*b.
+escreva(c).
+c := b-a.
+escreva(c).
+c := b/a.
+escreva(c).
+
+v := w+u.
+escreva(v).
+v := u+v.
+escreva(v).
+
+g := f&&t.
+escreva(g).
+g := f||t.
+escreva(g).
+g := (a==b).
+escreva(g).
+g := (a!=b).
+escreva(g).
+g := (a<=b).
+escreva(g).
+g := (a<b).
+escreva(g).
+g := (b<=a).
+escreva(g).
+g := (b<a).
+escreva(g).
+
+g := t&&(b<a).
+escreva(g).
+a :=b.
+g := (b<a).
+escreva(g).
 
 fimprog.

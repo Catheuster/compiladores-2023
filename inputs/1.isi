@@ -14,4 +14,9 @@ c := 2.5.
 
 d := verdadeiro.
 
+escreva(a).
+escreva(b).
+escreva(c).
+escreva(d).
+
 fimprog.
