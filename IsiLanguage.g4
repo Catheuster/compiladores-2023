@@ -45,7 +45,7 @@ def exibeComandos(self):
         print(command)
 
 def generateCode(self, choice=1):
-    self._program.generateTarget(choice)
+    return self._program.generateTarget(choice)
 
 def stack_op(self,op):
     if op in ['<', '>', '<=', '>=', '!=', '==']:
@@ -188,7 +188,7 @@ if self._identifier not in self._initialized_variables:
 
 {self._exprContent = ""}
 
-                   (expr) DOT
+                   expr DOT
 
 {self.verifyType(self._identifier, self._type)
 self._cmd = CommandAssign.CommandAssign(self._identifier, self._exprContent)
@@ -304,9 +304,9 @@ BOOL: 'verdadeiro' | 'falso' ;
 
 ID: [a-z] ([a-z] | [A-Z] | [0-9])* ;
 
-TEXT: '"' ([a-z] | [A-Z] | [0-9] | ' ')+ '"' ;
+TEXT: '"' ([a-z] | [A-Z] | [0-9] | ' ' | ',' | '.' | ';' | '!' | '?')+ '"' ;
 
-NUM: [0-9]+ ('.' [0-9])? ;
+NUM: [0-9]+ ('.' [0-9]+)? ;
 
 ASGN: ':=' ;
 

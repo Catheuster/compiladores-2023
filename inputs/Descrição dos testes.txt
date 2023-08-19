@@ -11,3 +11,4 @@
 11 - Verificar se uma variável está sendo usada sem ter valor inicial (ERRO)
 12 - Encadeamento de comandos
 13 - Expressões aritméticas
+14 - Warning variável declarada mas não usada (NO ERROR)

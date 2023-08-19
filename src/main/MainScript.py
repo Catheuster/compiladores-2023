@@ -1,23 +1,14 @@
 a=None
 b=None
 c=None
+d=None
+e=None
 
-a = 2
+a = 2.25
 
-b = 1
+b = 3
 
-c = True
+b = a*b
 
-if 1>2:
-	print("1 menor que 2")
-
-if a>b:
-	print("a maior que b")
-else:
-	print("b menor que a")
-
-if c:
-	print("c True")
-else:
-	print("c False")
+print(b)
 

@@ -1,0 +1,10 @@
+programa
+
+numero a,b,c,d,e.
+
+a := 2.25.
+b := 3.
+b := a*b.
+escreva (b).
+
+fimprog.

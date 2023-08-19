@@ -7,27 +7,17 @@ Scanner scanner = new Scanner(System.in);
 
 double a;
 double b;
-boolean c;
+double c;
+double d;
+double e;
 
-a = 2;
+a = 2.25;
 
-b = 1;
+b = 3;
 
-c = true;
+b = a*b;
 
-if (1>2) {
-System.out.println("1 menor que 2");
-}
+System.out.println(b);
 
-if (a>b) {
-System.out.println("a maior que b");
-}else {
-System.out.println("b menor que a");
-}
-if (c) {
-System.out.println("c true");
-}else {
-System.out.println("c false");
-}
 }
 }

@@ -790,12 +790,12 @@ class IsiLanguageParser ( Parser ):
         def ASGN(self):
             return self.getToken(IsiLanguageParser.ASGN, 0)
 
-        def DOT(self):
-            return self.getToken(IsiLanguageParser.DOT, 0)
-
         def expr(self):
             return self.getTypedRuleContext(IsiLanguageParser.ExprContext,0)
 
+
+        def DOT(self):
+            return self.getToken(IsiLanguageParser.DOT, 0)
 
         def getRuleIndex(self):
             return IsiLanguageParser.RULE_cmdAssign
@@ -828,7 +828,6 @@ class IsiLanguageParser ( Parser ):
             self.state = 93
             self.match(IsiLanguageParser.ASGN)
             self._exprContent = ""
-
             self.state = 95
             self.expr()
             self.state = 96

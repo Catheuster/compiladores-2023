@@ -1,13 +1,10 @@
 programa
 
 numero a, b, c.
-texto w, u, v.
 booleano t, f, g.
 
 a := 1.75.
 b := 3.
-w := "hello, ".
-u := "professor Isidro.".
 t := verdadeiro.
 f := falso.
 
@@ -19,11 +16,6 @@ c := b-a.
 escreva(c).
 c := b/a.
 escreva(c).
-
-v := w+u.
-escreva(v).
-v := u+v.
-escreva(v).
 
 g := f&&t.
 escreva(g).

@@ -1,24 +1,14 @@
 a=null;
 b=null;
 c=null;
+d=null;
+e=null;
 
-a = 2;
+a = 2.25;
 
-b = 1;
+b = 3;
 
-c = true;
+b = a*b;
 
-if (1>2) {
-alert("1 menor que 2");
-}
+alert(b);
 
-if (a>b) {
-alert("a maior que b");
-}else {
-alert("b menor que a");
-}
-if (c) {
-alert("c true");
-}else {
-alert("c false");
-}
