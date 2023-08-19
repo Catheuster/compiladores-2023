@@ -1,18 +1,9 @@
 programa
 
-numero a.
+numero a, b.
 
-texto b.
+a := 1.
 
-booleano c.
-
-leia(a).
-leia(b).
-leia(c).
-
-escreva(a).
-escreva(b).
-escreva(c).
-escreva("teste").
+b := a + 1.
 
 fimprog.

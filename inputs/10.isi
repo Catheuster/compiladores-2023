@@ -1,7 +1,7 @@
 programa
 
-numero a.
+numero a, b.
 
-escreva(a).
+leia(a).
 
 fimprog.

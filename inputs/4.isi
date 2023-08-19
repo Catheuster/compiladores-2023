@@ -1,13 +1,17 @@
 programa
 
-numero a, b, c, d.
+numero a.
 
-a := 1+1.
+a := 5.
 
-b := 2-1.
+enquanto (a > 0) {
+    escreva(a).
+    a := a - 1.
+}
 
-c := 2*2.
-
-d := 6/3.
+faca {
+    escreva(a).
+    a := a + 1.
+} enquanto (a < 5).
 
 fimprog.

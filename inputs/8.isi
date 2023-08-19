@@ -1,7 +1,8 @@
 programa
 
-numero a.
+numero a, b.
 
-escreva(b).
+a := 1.1.
+b := 23.654.
 
 fimprog.

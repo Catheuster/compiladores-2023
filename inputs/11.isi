@@ -1,62 +1,7 @@
 programa
 
-numero a, b.
+numero a.
 
-a := 1.
-
-b := 2.5.
-
-se (a < b) entao {
-    a := a + 1.
-    se (a > b) entao {
-        escreva("agora a e maior").
-    }
-}
-
-se (a > b) entao {
-    se (b > 3) entao {
-        escreva("a maior que b e b maior que 3").
-    } senao {
-        escreva("a maior que b e b menor que 3").
-    }
-} senao {
-    se (b > 3) entao {
-        escreva("a menor que b e b maior que 3").
-    } senao {
-        escreva("a menor que b e b menor que 3").
-    }
-}
-
-a := 0.
-b := 10.
-
-enquanto (a < 10) {
-    enquanto (b > 0) {
-        b := b - 1.
-    }
-    a := a + 1.
-    b := 10.
-}
-
-a := 0.
-b := 10.
-
-faca {
-    faca {
-        b := b - 1.
-    } enquanto (b > 0).
-    a := a + 1.
-    b := 10.
-} enquanto (a < 10).
-
-a := 0.
-b := 10.
-
-enquanto (a < 10) {
-    se (b == 10) entao {
-        a := a + 1.
-    }
-}
+escreva(a).
 
 fimprog.
-

@@ -1,26 +1,31 @@
 programa
 
 numero a, b.
-booleano c.
+texto c.
+booleano d.
 
-a := 2.
-b := 1.
-c := verdadeiro.
+b := 1.5.
+d := verdadeiro.
 
-se (1 > 2) entao {
+se (1 < 2) entao {
     escreva("1 menor que 2").
 }
 
-se (a > b) entao {
-    escreva("a maior que b").
+leia(a).
+
+se (a < b) entao {
+    escreva("a menor que b").
 } senao {
     escreva("b menor que a").
 }
 
-se (c) entao {
-    escreva ("c verdadeiro").
+se (d) entao {
+    escreva ("d verdadeiro").
 } senao {
-    escreva ("c falso").
+    escreva ("d falso").
 }
+
+c := "teste concluido".
+escreva(c).
 
 fimprog.
