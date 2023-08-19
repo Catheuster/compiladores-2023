@@ -31,3 +31,14 @@ Compiladores
 |   4   | Geração de várias linguagens-alvo             |      3       | &check; | 
 |   5   | Uma API Rest para implementação do compilador |      4       | &check; | 
 |   6   | Um Interpretador (runtime) para a linguagem   |      5       |         | 
+
+<br>
+
+## Integrantes
+
+| Nome                              | RA          |
+| :-------------------------------: | :---------: | 
+| Gabriel Sponda Freitas Bettarello | 11201932580 |
+| Guilherme Afonso Gigeck           | 11201810009 |
+| Ivan Zanutto Bastos               | 11007116    |
+| Matheus Marques                   | 11201920383 |
